@@ -1,0 +1,36 @@
+﻿# Local agent configuration
+.adal/
+
+# Python environments and generated files
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Build outputs and local databases
+build/
+dist/
+*.egg-info/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs, temporary files, and editor settings
+*.log
+*.tmp
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

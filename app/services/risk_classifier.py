@@ -14,7 +14,7 @@ class ModelServiceTimeout(ModelServiceError):
 
 
 def classify_clause(clause: str) -> str:
-    base_url = os.environ.get("LLM_BASE_URL", "http://localhost:8000/v1").rstrip("/")
+    base_url = os.environ.get("LLM_BASE_URL", "http://127.0.0.1:8000/v1").rstrip("/")
     model = os.environ.get("LLM_MODEL", "contract-risk-model")
     api_key = os.environ.get("LLM_API_KEY")
     try:

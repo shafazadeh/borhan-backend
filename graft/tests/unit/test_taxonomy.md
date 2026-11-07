@@ -1,0 +1,34 @@
+# tests/unit/test_taxonomy.py
+
+- FakeGateway · class · L18-L29 — class FakeGateway
+- __init__ · method · L19-L21 — def __init__(self, error=False)
+- classify · method · L23-L29 — async def classify(self, clause)
+- RuleTests · class · L32-L69 — class RuleTests(unittest.TestCase)
+- test_ten_subjects · method · L33-L49 — def test_ten_subjects(self)
+- test_one_indicator_or_ambiguous · method · L50-L53 — def test_one_indicator_or_ambiguous(self)
+- test_title_and_normalization · method · L54-L58 — def test_title_and_normalization(self)
+- test_split_preserves_parent_and_non_numbered · method · L59-L64 — def test_split_preserves_parent_and_non_numbered(self)
+- test_rule_speed · method · L65-L69 — def test_rule_speed(self)
+- AsyncTests · class · L72-L147 — class AsyncTests(unittest.IsolatedAsyncioTestCase)
+- test_fallback_mixed_and_rule_no_call · method · L73-L80 — async def test_fallback_mixed_and_rule_no_call(self)
+- test_failure_degrades · method · L81-L84 — async def test_failure_degrades(self)
+- test_model_response_format_failure_degrades · method · L85-L102 — async def test_model_response_format_failure_degrades(self)
+- Response · class · L86-L88 — class Response
+- raise_for_status · method · L87-L87 — def raise_for_status(self)
+- json · method · L88-L88 — def json(self)
+- Client · class · L89-L93 — class Client
+- __init__ · method · L90-L90 — def __init__(self, **kw)
+- __aenter__ · method · L91-L91 — async def __aenter__(self)
+- __aexit__ · method · L92-L92 — async def __aexit__(self, *args)
+- post · method · L93-L93 — async def post(self, *args, **kwargs)
+- test_model_json_response · method · L103-L120 — async def test_model_json_response(self)
+- Response · class · L104-L107 — class Response
+- raise_for_status · method · L105-L105 — def raise_for_status(self)
+- json · method · L106-L107 — def json(self)
+- Client · class · L108-L112 — class Client
+- __init__ · method · L109-L109 — def __init__(self, **kw)
+- __aenter__ · method · L110-L110 — async def __aenter__(self)
+- __aexit__ · method · L111-L111 — async def __aexit__(self, *args)
+- post · method · L112-L112 — async def post(self, *args, **kwargs)
+- test_api_validation_and_auth_override · method · L121-L131 — async def test_api_validation_and_auth_override(self)
+- test_docx_pipeline_in_memory · method · L132-L147 — async def test_docx_pipeline_in_memory(self)

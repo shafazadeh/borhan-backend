@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "contract-guard"
 version = "0.1.0"
 requires-python = ">=3.11"
-dependencies = ["fastapi>=0.115,<1", "httpx>=0.27,<1", "uvicorn>=0.30,<1", "pydantic-settings>=2,<3", "psycopg[binary]>=3.2,<4", "redis>=5,<7", "python-multipart>=0.0.20,<1", "pypdf>=5,<7", "python-docx>=1.1,<2"]
+dependencies = ["fastapi>=0.115,<1", "httpx>=0.27,<1", "uvicorn>=0.30,<1", "pydantic-settings>=2,<3", "psycopg[binary]>=3.2,<4", "redis>=5,<7", "python-multipart>=0.0.20,<1", "pypdf>=5,<7", "python-docx>=1.1,<2", "sentence-transformers>=3,<6"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/contract_guard"]

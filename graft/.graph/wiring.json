@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 243,
-    "edgeCount": 494,
+    "nodeCount": 291,
+    "edgeCount": 607,
     "languages": [
       "python"
     ],
@@ -426,6 +426,166 @@
       "summary": null,
       "crux": null,
       "owner": "ClauseChunker"
+    },
+    {
+      "id": "src/contract_guard/application/services/embedding.py",
+      "name": "embedding.py",
+      "kind": "file",
+      "path": "src/contract_guard/application/services/embedding.py",
+      "span": "L1-L23",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "ede686ab5c5d6a5f44f7ce18b0f85d442ff33855db75075f33b914765cac0f9c",
+      "chars": 636,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/embedding.py#_get_model",
+      "name": "_get_model",
+      "kind": "function",
+      "path": "src/contract_guard/application/services/embedding.py",
+      "span": "L9-L17",
+      "signature": "def _get_model()",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "3fb009219cf1d66840454eb7eae83355f86e3c6a960dfa4d0cb911674e5a54f6",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "name": "LocalEmbeddingService",
+      "kind": "class",
+      "path": "src/contract_guard/application/services/embedding.py",
+      "span": "L20-L22",
+      "signature": "class LocalEmbeddingService",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "12d891295b96acb2f237d8e136db432e99a7a7f8e39ed5c7828df2ea2018511f",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService.embed_text",
+      "name": "embed_text",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/embedding.py",
+      "span": "L21-L22",
+      "signature": "def embed_text(self, text: str) -> list[float]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "8bad96106b090ee46239062d4a463d49307f452cd79f90922575a5e3301355d0",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "LocalEmbeddingService"
+    },
+    {
+      "id": "src/contract_guard/application/services/semantic_search.py",
+      "name": "semantic_search.py",
+      "kind": "file",
+      "path": "src/contract_guard/application/services/semantic_search.py",
+      "span": "L1-L25",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "dbc2ec9942916051bef50db11d35f1a639dd999cb6e6c83ccc454f38b4e12def",
+      "chars": 903,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/semantic_search.py#ChunkSearchRepository",
+      "name": "ChunkSearchRepository",
+      "kind": "class",
+      "path": "src/contract_guard/application/services/semantic_search.py",
+      "span": "L7-L8",
+      "signature": "class ChunkSearchRepository(Protocol)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "ff07507268413d625c5e3aafd6d7658c839d7e9cb38f2f10fcb71b1742a9545e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/semantic_search.py#ChunkSearchRepository.search_similar_chunks",
+      "name": "search_similar_chunks",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/semantic_search.py",
+      "span": "L8-L8",
+      "signature": "def search_similar_chunks(self, query_embedding: list[float], limit: int = 5, *, user_id: UUID) -> list[dict]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "dfbfeb62c8d3d268b71041d42e34242b1c82166d57834f3f587fcdd92154d9ae",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "ChunkSearchRepository"
+    },
+    {
+      "id": "src/contract_guard/application/services/semantic_search.py#EmbeddingDimensionError",
+      "name": "EmbeddingDimensionError",
+      "kind": "class",
+      "path": "src/contract_guard/application/services/semantic_search.py",
+      "span": "L23-L24",
+      "signature": "class EmbeddingDimensionError(ValueError)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "02b4aee5a3fe9cc284e0347294bcc68eb750eb3b65375033d8ba479f3ddb0860",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "name": "SemanticSearchService",
+      "kind": "class",
+      "path": "src/contract_guard/application/services/semantic_search.py",
+      "span": "L11-L20",
+      "signature": "class SemanticSearchService",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "039148747160e33f447293974efe656bd5223a39cfaa735e50bf5dd42159377b",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService.__init__",
+      "name": "__init__",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/semantic_search.py",
+      "span": "L12-L14",
+      "signature": "def __init__(self, embedding_service: EmbeddingService, repository: ChunkSearchRepository)",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "ba658802f0351f68e0acd862e7d81d4d97a771fe7b49b2baffce8c01cc01d47d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "SemanticSearchService"
+    },
+    {
+      "id": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService.search",
+      "name": "search",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/semantic_search.py",
+      "span": "L16-L20",
+      "signature": "def search(self, query: str, user_id: UUID, limit: int = 5) -> list[dict]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "0a06b67c8eca45fbf1ce9b944f752d612482d68429174272684e1cd306464bad",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "SemanticSearchService"
     },
     {
       "id": "src/contract_guard/application/use_cases/__init__.py",
@@ -998,12 +1158,12 @@
       "name": "settings.py",
       "kind": "file",
       "path": "src/contract_guard/config/settings.py",
-      "span": "L1-L39",
+      "span": "L1-L41",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "a4c7524bd1b9b05c9b7953f19f347a49ba329294207bc508dfb20f9c532312f4",
-      "chars": 1407,
+      "body_hash": "b0ed662b0eaceed45c89ab7f80ae8fca3d0d454d8e35c3f1380229eaa8969f10",
+      "chars": 1582,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1027,11 +1187,11 @@
       "name": "Settings",
       "kind": "class",
       "path": "src/contract_guard/config/settings.py",
-      "span": "L11-L38",
+      "span": "L11-L40",
       "signature": "class Settings(BaseSettings)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "835d14a3b252d992a02cfa8f85b16f5bd7694146839f844c36e592bee46a66a2",
+      "body_hash": "1b271794c352f046668dce5e8fea7b7f7cb47f19f5fdac68db8808840f416892",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1503,6 +1663,65 @@
       "owner": "VectorStore"
     },
     {
+      "id": "src/contract_guard/domain/services/__init__.py",
+      "name": "__init__.py",
+      "kind": "file",
+      "path": "src/contract_guard/domain/services/__init__.py",
+      "span": "L1-L1",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "chars": 0,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/domain/services/embedding.py",
+      "name": "embedding.py",
+      "kind": "file",
+      "path": "src/contract_guard/domain/services/embedding.py",
+      "span": "L1-L6",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "24eafb4d2e65b6cbc946b644dff6dd7491eaa11d643c581ad4825664c50fb2cc",
+      "chars": 120,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/domain/services/embedding.py#EmbeddingService",
+      "name": "EmbeddingService",
+      "kind": "class",
+      "path": "src/contract_guard/domain/services/embedding.py",
+      "span": "L4-L5",
+      "signature": "class EmbeddingService(Protocol)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "4e2dd9238122955c19ab55d61f5c7fa5c64592f4e68cbcc8e630355f8a076195",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/domain/services/embedding.py#EmbeddingService.embed_text",
+      "name": "embed_text",
+      "kind": "method",
+      "path": "src/contract_guard/domain/services/embedding.py",
+      "span": "L5-L5",
+      "signature": "def embed_text(self, text: str) -> list[float]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "1533475225280317242f7c0282002e92631f9658b76c24c9ed1f1878758b248a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "EmbeddingService"
+    },
+    {
       "id": "src/contract_guard/infrastructure/__init__.py",
       "name": "__init__.py",
       "kind": "file",
@@ -1764,6 +1983,65 @@
       "summary_state": "pending",
       "summary": null,
       "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "name": "contract_repo.py",
+      "kind": "file",
+      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "span": "L1-L37",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "fdea90e729c82fec37e15ed1210a05ccbb53a0ccc33b424d01d7914e53b25085",
+      "chars": 1736,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "name": "ContractRepository",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "span": "L6-L36",
+      "signature": "class ContractRepository",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a41b5a178d84039a333c84095ea9158a5eb8079c2134f550ef529d59c522b6eb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
+      "name": "save_chunk_embedding",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "span": "L7-L19",
+      "signature": "def save_chunk_embedding(self, user_id, contract_id: str, chunk_id: str, text: str, embedding: list[float]) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c8aa18c52eec27bbfe8f81b5c620c8ab57e5d3e9d46ecedf36544a9d2078166e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "ContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
+      "name": "search_similar_chunks",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "span": "L21-L36",
+      "signature": "def search_similar_chunks(self, query_embedding: list[float], limit: int = 5, *, user_id) -> list[dict]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "4513ec7e36e3d0aa8a7ba7346caf1d04d9d82ca943e8c7ada6055da39c6aede6",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "ContractRepository"
     },
     {
       "id": "src/contract_guard/infrastructure/database/repositories/legal_kb_repo.py",
@@ -2498,6 +2776,120 @@
       "crux": null
     },
     {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "name": "embedding.py",
+      "kind": "file",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L1-L77",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "58ad6d9ab0afc5fc9e755c10fcce033c09f4f45894c7d2de15d99bf457b6fd3b",
+      "chars": 3676,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
+      "name": "embed_chunk",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L27-L30",
+      "signature": "def embed_chunk(body: EmbedChunkRequest, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "3975b8646910abe3135282d12951c5c8c28bdb81b5a1f2c8892ef831558f38e9",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#EmbedChunkRequest",
+      "name": "EmbedChunkRequest",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L15-L18",
+      "signature": "class EmbedChunkRequest(BaseModel)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "dd7df1ab1f40c29f0dae60b56e1876ba585e6e6da2067efa2f15822f8119d2e5",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#EmbedChunkResponse",
+      "name": "EmbedChunkResponse",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L21-L23",
+      "signature": "class EmbedChunkResponse(BaseModel)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "cfaec8485c20920b94f1e6cfb46ac8c4d5a8c0b90dbdb685463606aaae5b283d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
+      "name": "search_chunks",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L67-L76",
+      "signature": "def search_chunks(body: SearchRequest, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a1340c399387c9e86fd991b3dd8e4a6cf84d5be9bebe8d1bfa67138d7fe1a138",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SearchRequest",
+      "name": "SearchRequest",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L33-L45",
+      "signature": "class SearchRequest(BaseModel)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "9dba98b39ce867a1883f4686b7f5a7d2b9d97bd970d5a0c98e75ba7efc5384a6",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SearchRequest.validate_query",
+      "name": "validate_query",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L41-L45",
+      "signature": "def validate_query(cls, value: str) -> str",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "573c1cfab77a433246f64431c88162e98977fe0c3b3f9c5754ca6bf607811431",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "SearchRequest"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SimilarChunkResponse",
+      "name": "SimilarChunkResponse",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L48-L52",
+      "signature": "class SimilarChunkResponse(BaseModel)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "85fb0ab1e3840e5be686ec2882f0fd0fd067f67f5fae90128a02cd1df6ff4b65",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
       "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
       "name": "ingestion.py",
       "kind": "file",
@@ -2850,8 +3242,307 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "3bd49b3adb822d53d24f7f4962bfe30aa13e2c16aa4387c589a420cbd82420d0",
-      "chars": 357,
+      "body_hash": "d2633a750fcead554d45e05d593284c2ee6bcf53564c020d9517fa635d54b08a",
+      "chars": 379,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_embedding.py",
+      "name": "test_embedding.py",
+      "kind": "file",
+      "path": "tests/test_embedding.py",
+      "span": "L1-L39",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "22a27a78135c42803637fb7b3bf3f69f7cd66ce9c8c9caf2c18334f9b8566949",
+      "chars": 1783,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_embedding.py#test_embed_endpoint_requires_authentication",
+      "name": "test_embed_endpoint_requires_authentication",
+      "kind": "function",
+      "path": "tests/test_embedding.py",
+      "span": "L36-L38",
+      "signature": "def test_embed_endpoint_requires_authentication()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2ca2d164e67c5d33c33b25754b297ac9851ee11d93be582fe05514df8e4f87cf",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_embedding.py#test_embed_endpoint_saves_and_reports_dimension",
+      "name": "test_embed_endpoint_saves_and_reports_dimension",
+      "kind": "function",
+      "path": "tests/test_embedding.py",
+      "span": "L23-L33",
+      "signature": "def test_embed_endpoint_saves_and_reports_dimension()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2779c64d4933cabca879e160713cb61f5635036ab408d71a30ee684f986be4a3",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_embedding.py#test_embedding_model_is_reused",
+      "name": "test_embedding_model_is_reused",
+      "kind": "function",
+      "path": "tests/test_embedding.py",
+      "span": "L10-L20",
+      "signature": "def test_embedding_model_is_reused()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c53448f649d4ba3a40db209d8fc980af6e06cfe87ff7785eadb07a5930b3d96c",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
+      "name": "Model",
+      "kind": "class",
+      "path": "tests/test_embedding.py",
+      "span": "L11-L16",
+      "signature": "class Model",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "32f64c891567d898deadeb1c72fa9b1f8e3158b764b1315f4711be92e71b48d9",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
+      "name": "encode",
+      "kind": "method",
+      "path": "tests/test_embedding.py",
+      "span": "L12-L16",
+      "signature": "def encode(self, text, **kwargs)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2a83f0a0becaed90fabae7845434c1eb84ae82f2e565fb0d3ea631e39fcb9e1a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "Model"
+    },
+    {
+      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
+      "name": "Vector",
+      "kind": "class",
+      "path": "tests/test_embedding.py",
+      "span": "L13-L15",
+      "signature": "class Vector",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a4ae93bee85c28b544d959980c25e13ea4bc837d7f72e132bae9ec2d6c9ae1ba",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector.tolist",
+      "name": "tolist",
+      "kind": "method",
+      "path": "tests/test_embedding.py",
+      "span": "L14-L15",
+      "signature": "def tolist(self)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "f828d49d68c685d6fa2b699ea1d42e3836fa33a0750cbc9f058e5ffe7428215f",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "Vector"
+    },
+    {
+      "id": "tests/test_semantic_search_integration.py",
+      "name": "test_semantic_search_integration.py",
+      "kind": "file",
+      "path": "tests/test_semantic_search_integration.py",
+      "span": "L1-L94",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2f1558704f6be120dcc6a56413321e9a696bb922bca79184ffe89eaacc56c6b0",
+      "chars": 5053,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
+      "name": "test_pgvector_ranking_and_owner_isolation",
+      "kind": "function",
+      "path": "tests/test_semantic_search_integration.py",
+      "span": "L19-L43",
+      "signature": "def test_pgvector_ranking_and_owner_isolation()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "8dd40bb0ef7f3b4d047e8932747160f90d443fb7b8c88dfcf116e31210833ff6",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation.test_database",
+      "name": "test_database",
+      "kind": "function",
+      "path": "tests/test_semantic_search_integration.py",
+      "span": "L30-L31",
+      "signature": "def test_database()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "e556485797060b0908881ef7da6e94fceedb6f78cb45b62aff616f206534a3f1",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
+      "name": "test_real_persian_search_with_authenticated_user",
+      "kind": "function",
+      "path": "tests/test_semantic_search_integration.py",
+      "span": "L46-L93",
+      "signature": "def test_real_persian_search_with_authenticated_user(monkeypatch)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "e3d8db508545e21ba7f8d86093305eab7e58381ed6305cf679ebd17a3b9b40f4",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py",
+      "name": "test_semantic_search.py",
+      "kind": "file",
+      "path": "tests/test_semantic_search.py",
+      "span": "L1-L101",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "7c971b53e333e49d3edf4958a1ebdff267a7b2c82caa68c306e2ef340621fa45",
+      "chars": 4923,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_dimension_mismatch_does_not_query_database",
+      "name": "test_dimension_mismatch_does_not_query_database",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L65-L71",
+      "signature": "def test_dimension_mismatch_does_not_query_database()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a207906e4226feeec239b4544ea3de683a7e4a08c4308e1420cc2467f50283fd",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
+      "name": "test_repository_filters_by_owner_and_orders_by_cosine_distance",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L26-L42",
+      "signature": "def test_repository_filters_by_owner_and_orders_by_cosine_distance()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c4886edf1627803a94aae8dedf5cfd5ec8edf3b1c5b0d0b36a03643bebf3d1ae",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance.fake_database",
+      "name": "fake_database",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L31-L32",
+      "signature": "def fake_database()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c81bcd4c50d32b79b5b865ec7e3647716f14f03d5fa07abfa8b82ef22b9c2cae",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_search_dependency_errors_are_sanitized",
+      "name": "test_search_dependency_errors_are_sanitized",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L92-L100",
+      "signature": "def test_search_dependency_errors_are_sanitized(error, status)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "3c035fa941b93b46cb041886d68d077965d983098e163fd1fb1679e56a472ee5",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_search_embeds_query_and_scopes_repository_to_user",
+      "name": "test_search_embeds_query_and_scopes_repository_to_user",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L13-L23",
+      "signature": "def test_search_embeds_query_and_scopes_repository_to_user()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "8f85c2f4bc207b25f4710da27491eac419d3105bc3342e3bbf3e09308e6647d5",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_search_endpoint_requires_authentication",
+      "name": "test_search_endpoint_requires_authentication",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L60-L62",
+      "signature": "def test_search_endpoint_requires_authentication()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2b942ab9a663d8676bcc309a0a29cb37eb9090d962907679d77313ee4d87800e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_search_endpoint_returns_results_and_validates_limit",
+      "name": "test_search_endpoint_returns_results_and_validates_limit",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L45-L57",
+      "signature": "def test_search_endpoint_returns_results_and_validates_limit()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "58b369b9dab1ed636e9e0bce927419e49fb417c478d941f05e7999a7cb308108",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "tests/test_semantic_search.py#test_search_validation_empty_results_and_openapi",
+      "name": "test_search_validation_empty_results_and_openapi",
+      "kind": "function",
+      "path": "tests/test_semantic_search.py",
+      "span": "L74-L88",
+      "signature": "def test_search_validation_empty_results_and_openapi()",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "3a4a9398d2989ff5e52676d9ce2c4cde093d76298ed8281657baa8a01c6255c5",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3831,6 +4522,126 @@
       "confidence": "extracted"
     },
     {
+      "source": "src/contract_guard/application/services/embedding.py",
+      "target": "src/contract_guard/application/services/embedding.py#_get_model",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/embedding.py",
+      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/embedding.py",
+      "target": "contract_guard.config.settings",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/embedding.py",
+      "target": "sentence_transformers",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/embedding.py",
+      "target": "threading",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/embedding.py#_get_model",
+      "target": "src/contract_guard/config/settings.py#Settings",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService.embed_text",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService.embed_text",
+      "target": "src/contract_guard/application/services/embedding.py#_get_model",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py",
+      "target": "src/contract_guard/application/services/semantic_search.py#ChunkSearchRepository",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py",
+      "target": "src/contract_guard/application/services/semantic_search.py#EmbeddingDimensionError",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py",
+      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py",
+      "target": "contract_guard.domain.services.embedding",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py",
+      "target": "typing",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py",
+      "target": "uuid",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py#ChunkSearchRepository",
+      "target": "src/contract_guard/application/services/semantic_search.py#ChunkSearchRepository.search_similar_chunks",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py#ChunkSearchRepository",
+      "target": "Protocol",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py#EmbeddingDimensionError",
+      "target": "ValueError",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService.__init__",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService.search",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService.search",
+      "target": "src/contract_guard/application/services/semantic_search.py#EmbeddingDimensionError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
       "source": "src/contract_guard/application/use_cases/classify_clauses.py",
       "target": "src/contract_guard/application/use_cases/classify_clauses.py#HybridClauseClassifier",
       "relation": "contains",
@@ -4689,6 +5500,30 @@
       "confidence": "inferred"
     },
     {
+      "source": "src/contract_guard/domain/services/embedding.py",
+      "target": "src/contract_guard/domain/services/embedding.py#EmbeddingService",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/domain/services/embedding.py",
+      "target": "typing",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/domain/services/embedding.py#EmbeddingService",
+      "target": "src/contract_guard/domain/services/embedding.py#EmbeddingService.embed_text",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/domain/services/embedding.py#EmbeddingService",
+      "target": "Protocol",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
       "source": "src/contract_guard/infrastructure/cache/challenge_keys.py",
       "target": "src/contract_guard/infrastructure/cache/challenge_keys.py#challenge_keys",
       "relation": "contains",
@@ -4936,9 +5771,57 @@
     },
     {
       "source": "src/contract_guard/infrastructure/database/models.py#LegalKnowledgeBase",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/models.py#LegalKnowledgeBase",
       "target": "src/contract_guard/infrastructure/database/models.py#Base",
       "relation": "extends",
       "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "target": "contract_guard.infrastructure.database.session",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
+      "target": "src/contract_guard/infrastructure/database/session.py#database",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
+      "target": "src/contract_guard/infrastructure/database/session.py#database",
+      "relation": "calls",
+      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/database/session.py",
@@ -5481,6 +6364,156 @@
       "confidence": "inferred"
     },
     {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#EmbedChunkRequest",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#EmbedChunkResponse",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SearchRequest",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SimilarChunkResponse",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "contract_guard.application.services.embedding",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "contract_guard.application.services.semantic_search",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "contract_guard.infrastructure.database.repositories.contract_repo",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "contract_guard.infrastructure.web.dependencies",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "fastapi",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "logging",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "pydantic",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
+      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#EmbedChunkResponse",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#EmbedChunkRequest",
+      "target": "BaseModel",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#EmbedChunkResponse",
+      "target": "BaseModel",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
+      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
+      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
+      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService.search",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SearchRequest",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SearchRequest.validate_query",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SearchRequest",
+      "target": "BaseModel",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SimilarChunkResponse",
+      "target": "BaseModel",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
       "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
       "relation": "contains",
@@ -5887,6 +6920,342 @@
       "target": "fastapi",
       "relation": "imports",
       "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "tests/test_embedding.py#test_embed_endpoint_requires_authentication",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "tests/test_embedding.py#test_embed_endpoint_saves_and_reports_dimension",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "contract_guard.application.services",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "contract_guard.infrastructure.web.app",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "contract_guard.infrastructure.web.dependencies",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "fastapi.testclient",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py",
+      "target": "unittest.mock",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py#test_embedding_model_is_reused",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py#test_embedding_model_is_reused",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
+      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector.tolist",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "contextlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "contract_guard.application.services.embedding",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "contract_guard.infrastructure.database.repositories.contract_repo",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "contract_guard.infrastructure.web.app",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "datetime",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "fastapi.testclient",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "hashlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "psycopg",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "psycopg.rows",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "pytest",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "secrets",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "unittest.mock",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py",
+      "target": "uuid",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
+      "target": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation.test_database",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
+      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "src/contract_guard/application/services/semantic_search.py#EmbeddingDimensionError",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "tests/test_semantic_search.py#test_dimension_mismatch_does_not_query_database",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "tests/test_semantic_search.py#test_search_dependency_errors_are_sanitized",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "tests/test_semantic_search.py#test_search_embeds_query_and_scopes_repository_to_user",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "tests/test_semantic_search.py#test_search_endpoint_requires_authentication",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "tests/test_semantic_search.py#test_search_endpoint_returns_results_and_validates_limit",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "tests/test_semantic_search.py#test_search_validation_empty_results_and_openapi",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "contextlib",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "contract_guard.application.services.semantic_search",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "contract_guard.infrastructure.database.repositories.contract_repo",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "contract_guard.infrastructure.web.app",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "contract_guard.infrastructure.web.dependencies",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "fastapi.testclient",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "pytest",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py",
+      "target": "unittest.mock",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py#test_dimension_mismatch_does_not_query_database",
+      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
+      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
+      "target": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance.fake_database",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_semantic_search.py#test_search_embeds_query_and_scopes_repository_to_user",
+      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "relation": "calls",
+      "confidence": "inferred"
     },
     {
       "source": "tests/unit/test_chunk_polish.py",

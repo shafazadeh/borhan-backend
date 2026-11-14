@@ -10,6 +10,8 @@ class Environment(str, Enum):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    embedding_model_name: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    embedding_model_revision: str = "e8f8c211226b894fcb81acc59f3b34ba3efd5f42"
     environment: Environment
     database_url: str
     redis_url: str

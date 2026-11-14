@@ -1,7 +1,11 @@
 ---
 name: grilling
-description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
+description: Default interaction mode: grill the user about material plans, decisions, and assumptions before acting. Use for every request unless it is purely informational and has no material decision or assumption to validate.
 ---
+
+This skill is the default for this repository. Before carrying out a request, identify its material decisions and assumptions, then grill them until you and the user share an understanding. After agreement, perform the requested work and verify it. Do not require the user to say "grill me".
+
+For a purely informational request with no material decision or assumption, answer directly. Do not manufacture questions just to prolong the conversation.
 
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 

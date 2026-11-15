@@ -127,8 +127,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "646238dd88a8e72fea529a25c10c8cb220a199e0294fe8aa4abe2aa7189bcb99",
-      "chars": 4269,
+      "body_hash": "f5aed4315cb0c284b3b8550007655e1f651b35efca9aff44827909afb296f361",
+      "chars": 4323,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -142,7 +142,7 @@
       "signature": "async def make_embedding(content: str) -> None",
       "exported": true,
       "origin": "ast",
-      "body_hash": "d06aea0e587b60b72dd3447e40a32060718acff95fb4d2a26c6ea99914c502cc",
+      "body_hash": "8829b30dee488c9178d2878e06640a66c605e21a09cae0480b1c34393fcd2c51",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -156,7 +156,7 @@
       "signature": "async def seed()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "8ac806f859b95ff59cc69f345a6057ce5be6c95c8345be76746d4acb19929676",
+      "body_hash": "4fbaa79f65eb812a895f8394a193330ffa3fa2d7c1bd23d783a691b12def662a",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -494,8 +494,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "dbc2ec9942916051bef50db11d35f1a639dd999cb6e6c83ccc454f38b4e12def",
-      "chars": 903,
+      "body_hash": "cb33faa36d3c57e540d3a347a90eb10100f816c55274afdc84edcd637a6b427e",
+      "chars": 927,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -509,7 +509,7 @@
       "signature": "class ChunkSearchRepository(Protocol)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "ff07507268413d625c5e3aafd6d7658c839d7e9cb38f2f10fcb71b1742a9545e",
+      "body_hash": "9aa87759a2468dfcb786f275f2eff3deeece75ecd61770e7538fe1b3847fb945",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -538,7 +538,7 @@
       "signature": "class EmbeddingDimensionError(ValueError)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "02b4aee5a3fe9cc284e0347294bcc68eb750eb3b65375033d8ba479f3ddb0860",
+      "body_hash": "159c990964cc19e625a37ccb6f466025c81f5813add94fb6396f6f3a98cf7e14",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -552,7 +552,7 @@
       "signature": "class SemanticSearchService",
       "exported": true,
       "origin": "ast",
-      "body_hash": "039148747160e33f447293974efe656bd5223a39cfaa735e50bf5dd42159377b",
+      "body_hash": "48d61b5a394de458681cf2003dbb6e11c0c510cf6988d5b63016b17c57bd9e27",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -566,7 +566,7 @@
       "signature": "def __init__(self, embedding_service: EmbeddingService, repository: ChunkSearchRepository)",
       "exported": false,
       "origin": "ast",
-      "body_hash": "ba658802f0351f68e0acd862e7d81d4d97a771fe7b49b2baffce8c01cc01d47d",
+      "body_hash": "b56db7634b1bf9cc56c92e9d80faa6936be72493a876acd9ac298d2c47af20a0",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -581,7 +581,7 @@
       "signature": "def search(self, query: str, user_id: UUID, limit: int = 5) -> list[dict]",
       "exported": true,
       "origin": "ast",
-      "body_hash": "0a06b67c8eca45fbf1ce9b944f752d612482d68429174272684e1cd306464bad",
+      "body_hash": "4d6bdf39d004f8d0839d4ff98572d0343e6584c746150d42be0fc3be8292dc3e",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -1906,8 +1906,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "84daf551a9633b5f48f5918b9589783ebc62330024c5a877b8cf9878e989615f",
-      "chars": 380,
+      "body_hash": "5561467181670ba47b66393f7ece01d1e86e261d79896df3d777ffb22d9f1a7a",
+      "chars": 393,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1921,7 +1921,7 @@
       "signature": "def migrate()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "c43e7533744a0022b83ce18e0fb88fa19988ea667df8add0ac43c525685c61fc",
+      "body_hash": "1ba7c9e87687011d6fd0c78afd8b9ee7bc6d790254d6d5f32a63959d77221eb6",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1935,8 +1935,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "7f3f83e4ad58e47fd65f66ba35e6e59a34b476b111c2362ec21d5d4a9e98aaf5",
-      "chars": 1486,
+      "body_hash": "eadf9bd792a5494677a319564013556d59a9fea7dc31a805ee3c3e00767d0fa2",
+      "chars": 1510,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1950,7 +1950,7 @@
       "signature": "class Base(DeclarativeBase)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "20d5def49b72edcb879928bdcb30ab62acbd08de6ab20ca8002c03d078681635",
+      "body_hash": "6cc929775c3f45680900f3ab6f003c6ad1c48f9a4c5e22682d43d314b53e5e1d",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1964,7 +1964,7 @@
       "signature": "class LegalKnowledgeBase(Base)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "7765f2c47461631a24be4d61040cd63056f427931863a6b79ca7373c5c14be4b",
+      "body_hash": "c2b57d417c59949ed0744caf38beb2da581ff59797f240f11219929981b571d1",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2451,8 +2451,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "c40b2ee7a0768a40d48b545b160822baaeb1ca4a41bdf505e77e9de235dba08f",
-      "chars": 157,
+      "body_hash": "e253b1af163766429ed2a4ee6550682c7bbefb9a5f5bb9250d05a4daab6e41fd",
+      "chars": 162,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2495,8 +2495,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "0ca35e531006180bd82f9e408031d52e4f7dbd805a482d2339f919e12629cc29",
-      "chars": 44,
+      "body_hash": "12e12e735291c4b2847c36db2b5eb8334f1838e46dabdeda60ad2bee3c395f0c",
+      "chars": 45,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2784,8 +2784,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "58ad6d9ab0afc5fc9e755c10fcce033c09f4f45894c7d2de15d99bf457b6fd3b",
-      "chars": 3676,
+      "body_hash": "fdc3aab3e4b3be56672a631858f6e13f4ca34a42537db46cf8098f312ed31b25",
+      "chars": 3752,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2799,7 +2799,7 @@
       "signature": "def embed_chunk(body: EmbedChunkRequest, user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "3975b8646910abe3135282d12951c5c8c28bdb81b5a1f2c8892ef831558f38e9",
+      "body_hash": "684164fb2ab5cdc58de93a7ec96eece2ef7a615615b9a0a11a5421301328cd2a",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2813,7 +2813,7 @@
       "signature": "class EmbedChunkRequest(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "dd7df1ab1f40c29f0dae60b56e1876ba585e6e6da2067efa2f15822f8119d2e5",
+      "body_hash": "5def8396feaa2d615b8522f90f9dc40cc78a107ba5ac270c3e8dd45709a057d7",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2827,7 +2827,7 @@
       "signature": "class EmbedChunkResponse(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "cfaec8485c20920b94f1e6cfb46ac8c4d5a8c0b90dbdb685463606aaae5b283d",
+      "body_hash": "108e6906bd1d25bcd174503a423c8953b4187f9520312572172edb4c79acee08",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2841,7 +2841,7 @@
       "signature": "def search_chunks(body: SearchRequest, user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "a1340c399387c9e86fd991b3dd8e4a6cf84d5be9bebe8d1bfa67138d7fe1a138",
+      "body_hash": "0260006998774922b978b7780504983d2e5d41e8d2a0e06dcf18ebf88ea297db",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2855,7 +2855,7 @@
       "signature": "class SearchRequest(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "9dba98b39ce867a1883f4686b7f5a7d2b9d97bd970d5a0c98e75ba7efc5384a6",
+      "body_hash": "32869dd18432baca294b5860f24c21f6f0be5a9f5832be1469304202132cb13a",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2869,7 +2869,7 @@
       "signature": "def validate_query(cls, value: str) -> str",
       "exported": true,
       "origin": "ast",
-      "body_hash": "573c1cfab77a433246f64431c88162e98977fe0c3b3f9c5754ca6bf607811431",
+      "body_hash": "e52a0f5e3b340cbc5b3a91b8a8b4200cb291dc971310960cde8f3f8926b9fc14",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -2884,7 +2884,7 @@
       "signature": "class SimilarChunkResponse(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "85fb0ab1e3840e5be686ec2882f0fd0fd067f67f5fae90128a02cd1df6ff4b65",
+      "body_hash": "360617536c39f726cc694a7d8b471483b955f9f7b449441d7f28d453b7a3716b",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3025,8 +3025,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "0621bf5cbc8a780b3b8bf404cea3cc86b7769e1106ba789196f421f47bf74981",
-      "chars": 376,
+      "body_hash": "b115a93a363d7f80ab105403a00511773db2321315eaf9eeb8f7bc3886633ce3",
+      "chars": 387,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3040,7 +3040,7 @@
       "signature": "def logout_session(user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "8a21836e6e8b8d8a4516ea415424461a679abac5ae4f24ecbda8a64910df95a0",
+      "body_hash": "b3b6cebbdfd4c273f70b1f207067b8a369e7bbe518473911ea790ae789639bb4",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3257,8 +3257,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "22a27a78135c42803637fb7b3bf3f69f7cd66ce9c8c9caf2c18334f9b8566949",
-      "chars": 1783,
+      "body_hash": "431b698bc45651ed3d61be2fb396b8fb56507c2a518af37a6e9fc746b15d37f8",
+      "chars": 1820,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3272,7 +3272,7 @@
       "signature": "def test_embed_endpoint_requires_authentication()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "2ca2d164e67c5d33c33b25754b297ac9851ee11d93be582fe05514df8e4f87cf",
+      "body_hash": "56fe5a7df395b94847720c81853b5a5c786c999e28a4c171261a564bdd233b82",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3286,7 +3286,7 @@
       "signature": "def test_embed_endpoint_saves_and_reports_dimension()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "2779c64d4933cabca879e160713cb61f5635036ab408d71a30ee684f986be4a3",
+      "body_hash": "3cbb310af10c55d488d5c0259b4d505292f864ee549bd35d68b30b22a9b4a3d1",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3300,7 +3300,7 @@
       "signature": "def test_embedding_model_is_reused()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "c53448f649d4ba3a40db209d8fc980af6e06cfe87ff7785eadb07a5930b3d96c",
+      "body_hash": "9b90835c344c0b6d98139d0f1fb9c2ccc190a81c391cdbcdb6b986e62911506a",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3314,7 +3314,7 @@
       "signature": "class Model",
       "exported": true,
       "origin": "ast",
-      "body_hash": "32f64c891567d898deadeb1c72fa9b1f8e3158b764b1315f4711be92e71b48d9",
+      "body_hash": "caee4ce664bb3dc52220541fa1def8a3a4407efe0c725dbf4097ccdbefb736d3",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3328,7 +3328,7 @@
       "signature": "def encode(self, text, **kwargs)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "2a83f0a0becaed90fabae7845434c1eb84ae82f2e565fb0d3ea631e39fcb9e1a",
+      "body_hash": "ff20c052703ad64975640b7a4ddcf12d334829c4600d37d83d06deebae338583",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -3343,7 +3343,7 @@
       "signature": "class Vector",
       "exported": true,
       "origin": "ast",
-      "body_hash": "a4ae93bee85c28b544d959980c25e13ea4bc837d7f72e132bae9ec2d6c9ae1ba",
+      "body_hash": "61f6801552e5424bcadb85c3dfd055ad32aa7dd77321e561dc4c8f62031dbad2",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3357,7 +3357,7 @@
       "signature": "def tolist(self)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "f828d49d68c685d6fa2b699ea1d42e3836fa33a0750cbc9f058e5ffe7428215f",
+      "body_hash": "cbc64e2a581439563a7ce900650c87119680100742141f8a8e221b8c32d83f2c",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -3429,8 +3429,8 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "7c971b53e333e49d3edf4958a1ebdff267a7b2c82caa68c306e2ef340621fa45",
-      "chars": 4923,
+      "body_hash": "f8d8a4943adf5f5ddfa1b369e62bb012e5c4d98c6efe2b656ae2e534d1fc176d",
+      "chars": 5023,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3444,7 +3444,7 @@
       "signature": "def test_dimension_mismatch_does_not_query_database()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "a207906e4226feeec239b4544ea3de683a7e4a08c4308e1420cc2467f50283fd",
+      "body_hash": "01881dbf4239ab2db6938c8331936c6c485cf451bef92a8111f8d9741580debb",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3458,7 +3458,7 @@
       "signature": "def test_repository_filters_by_owner_and_orders_by_cosine_distance()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "c4886edf1627803a94aae8dedf5cfd5ec8edf3b1c5b0d0b36a03643bebf3d1ae",
+      "body_hash": "a1f03f6787335b43b127ce829ffe78f821bf06d832a97cfea3c90a3a46ac4dd0",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3472,7 +3472,7 @@
       "signature": "def fake_database()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "c81bcd4c50d32b79b5b865ec7e3647716f14f03d5fa07abfa8b82ef22b9c2cae",
+      "body_hash": "dfd921bcc7805c9f15bf221f6497b1aa2beec61eb12e6824a27a5cfb7aabc52a",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3486,7 +3486,7 @@
       "signature": "def test_search_dependency_errors_are_sanitized(error, status)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "3c035fa941b93b46cb041886d68d077965d983098e163fd1fb1679e56a472ee5",
+      "body_hash": "a5857ed523984c248ceb348054038ed403be0e31b0a0ce54a76d69665ab2cd78",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3500,7 +3500,7 @@
       "signature": "def test_search_embeds_query_and_scopes_repository_to_user()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "8f85c2f4bc207b25f4710da27491eac419d3105bc3342e3bbf3e09308e6647d5",
+      "body_hash": "3302a262ca46ddf3b346136edc6aaadc070c67065efe88de7b5a0082c1721f5d",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3514,7 +3514,7 @@
       "signature": "def test_search_endpoint_requires_authentication()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "2b942ab9a663d8676bcc309a0a29cb37eb9090d962907679d77313ee4d87800e",
+      "body_hash": "6b00c85070108de1ec74c0fecac0c7d01b8555c4c37614aba946081477b082f8",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3528,7 +3528,7 @@
       "signature": "def test_search_endpoint_returns_results_and_validates_limit()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "58b369b9dab1ed636e9e0bce927419e49fb417c478d941f05e7999a7cb308108",
+      "body_hash": "8a88fc061164f518d40ed231fecd0562e09b4f0451615e8ed71accc86d44f8bc",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3542,7 +3542,7 @@
       "signature": "def test_search_validation_empty_results_and_openapi()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "3a4a9398d2989ff5e52676d9ce2c4cde093d76298ed8281657baa8a01c6255c5",
+      "body_hash": "42fbf28eeebbfd0ab2aed573767529cf8a0094f7bc66b1ebe95beee0b1e17fce",
       "summary_state": "pending",
       "summary": null,
       "crux": null

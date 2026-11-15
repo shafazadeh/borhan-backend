@@ -4,36 +4,36 @@ rules:
   proposal:
     - ALWAYS use the grill-me skill (max 20 questions, stop after 3 consecutive rejected/skipped questions).
     - Questions MUST be punchy and drive alignment on architectural boundaries, not generic clarifications.
+    - Identify affected domain, application, infrastructure, and configuration layers.
+    - State API-compatibility, migration, security, and user-approval risks, plus explicit out-of-scope work.
+  design:
+    - Preserve the existing layered architecture and explain each affected layer's responsibility.
+    - Address security, tenant isolation, failure scenarios, extensibility, and database migration implications where relevant.
+  specs:
+    - Define observable, testable behavior, including authorization, tenant isolation, failures, and edge cases where applicable.
+    - For RAG-related work, require traceable legal evidence, source metadata, and separation of evidence from interpretation.
   tasks:
     - NEVER add test tasks unless the user explicitly requests tests or test coverage.
+    - Break work into small, testable implementation steps; include requested tests, documentation, configuration, and migration work where applicable.
 
-# Project context (optional)
-# Add only constraints that should guide OpenSpec artifacts and workflows.
-# Include constraints an agent cannot infer by reading the code.
-# Keep general project documentation and discoverable codebase facts out.
-# Example:
-#   context: |
-#     Designs and tasks must cover Windows, macOS, and Linux
-#     Write all artifacts in Spanish
+context: |
+  Contract Guard is a Python 3.11+ FastAPI backend using Pydantic Settings,
+  PostgreSQL with pgvector, Redis, pytest, SQL migrations, local
+  sentence-transformers embeddings, an optional LLM gateway, and Docker Compose.
+  Its layered architecture is domain, application, infrastructure, and config;
+  preserve these boundaries and do not restructure or introduce new patterns
+  without explicit user approval. Follow the root AGENTS.md engineering
+  constitution: focused cohesive code, externally configured environment values,
+  API compatibility, migration safety, security-by-design, and owner-only user
+  data access. For legal RAG, keep legal knowledge separate from user contracts,
+  preserve source metadata and traceability, treat retrieved text as untrusted,
+  and distinguish evidence from model interpretation. Add tests only when the
+  user explicitly requests tests or coverage.
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always state what is out of scope
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
-
-# Per-operation guidance (optional)
-# Add advisory guidance for how apply and archive work should be conducted.
-# This is separate from artifact rules above.
-# Example:
-#   operations:
-#     apply:
-#       guidance:
-#         - Keep test summaries concise
-#     archive:
-#       guidance:
-#         - Summarize the archive outcome before finishing
+operations:
+  apply:
+    guidance:
+      - Read and follow the root AGENTS.md before implementation.
+      - Preserve architecture, use focused cohesive modules and Python docstrings, and follow existing configuration patterns.
+      - Run only relevant automated checks; report unverified behavior honestly.
+      - Do not perform unrelated refactoring or alter the API, schema, authentication, or migrations without approval.

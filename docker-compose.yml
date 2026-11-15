@@ -4,6 +4,10 @@ services:
     command: ["redis-server", "--save", "", "--appendonly", "no"]
     ports:
       - "127.0.0.1:${REDIS_PORT:?Set REDIS_PORT in .env}:6379"
+  redis-contracts:
+    image: redis:8
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "${CONTRACT_REDIS_MAX_MEMORY:-512mb}", "--maxmemory-policy", "noeviction"]
+    # Deliberately has no host port: contract data is only reachable on the compose network.
   postgres:
     image: pgvector/pgvector:pg16
     environment:

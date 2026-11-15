@@ -1,5 +1,5 @@
 from enum import Enum
-from pydantic import Field
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -38,3 +38,16 @@ class Settings(BaseSettings):
     taxonomy_llm_timeout_seconds: int = Field(ge=1, le=120)
     taxonomy_llm_max_chars: int = Field(ge=100, le=10000)
     taxonomy_llm_concurrency: int = Field(ge=1, le=32)
+    contract_redis_url: str = "redis://127.0.0.1:56380/0"
+    contract_ttl_seconds: int = Field(default=7200, ge=1, le=7200)
+    contract_redis_max_memory: str = "512mb"
+    contract_max_active_per_user: int = Field(default=5, ge=1, le=100)
+    contract_max_payload_bytes: int = Field(default=10485760, ge=1)
+    contract_processing_concurrency: int = Field(default=2, ge=1, le=16)
+
+    @model_validator(mode="after")
+    def validate_contract_limits(self) -> "Settings":
+        """Validate limits for volatile contract processing."""
+        if self.contract_max_payload_bytes > self.upload_max_bytes:
+            raise ValueError("CONTRACT_MAX_PAYLOAD_BYTES cannot exceed UPLOAD_MAX_BYTES")
+        return self

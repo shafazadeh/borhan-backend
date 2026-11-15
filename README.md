@@ -1,5 +1,38 @@
 # Contract Guard
 
+## وضعیت فعلی: قراردادهای موقت در RAM
+
+این بخش وضعیت فعلی پروژه را مشخص می‌کند و هر توضیح قدیمیِ ناسازگار در بخش‌های پایین‌تر را جایگزین می‌کند؛ سایر مستندات قبلی برای حفظ زمینهٔ پروژه بدون حذف باقی مانده‌اند.
+
+محتوای قرارداد، متن استخراج‌شده، بندها، chunkها، embeddingها و تحلیل‌های وابسته فقط در Redis اختصاصی `redis-contracts` نگهداری می‌شوند. هر قرارداد شناسهٔ تصادفی دارد، به مالک احرازشده محدود است، حداکثر تا `CONTRACT_TTL_SECONDS` (سقف قطعی ۷۲۰۰ ثانیه) زنده می‌ماند و عملیات خواندن یا update آن TTL را تمدید نمی‌کند. حذف دستی با `DELETE /api/v1/contracts/{contract_id}` داده و ورودی شاخص مالک را حذف می‌کند. PostgreSQL و pgvector برای دادهٔ خصوصی قرارداد استفاده نمی‌شوند؛ جدول تاریخی `contract_embeddings` عمداً تا زمان تصمیم عملیاتی مستقل حذف نشده است.
+
+### API قرارداد
+
+همهٔ مسیرهای زیر به احراز هویت Bearer نیاز دارند.
+
+| مسیر | کاربرد |
+|---|---|
+| `POST /api/v1/contracts` | آپلود multipart با فیلد `file`، استخراج و ایجاد قرارداد؛ پاسخ شامل `contract_id`، `expires_in` و `expires_at` است. |
+| `GET` / `DELETE /api/v1/contracts/{contract_id}` | دریافت قرارداد موقت یا حذف فوری آن، فقط توسط مالک. |
+| `POST /api/v1/contracts/{contract_id}/classify` | دسته‌بندی بندهای ذخیره‌شده. |
+| `POST /api/v1/contracts/{contract_id}/chunk` | chunkسازی بندهای ذخیره‌شده. |
+| `POST /api/v1/contracts/{contract_id}/embed` | تولید embeddingهای ۳۸۴بعدی با مدل محلی؛ پردازش CPU-bound خارج از event loop اجرا و هم‌زمانی آن محدود می‌شود. |
+| `POST /api/v1/contracts/{contract_id}/search` | جست‌وجوی cosine با NumPy تنها در embeddingهای همان قرارداد. |
+
+نمونهٔ جست‌وجو:
+
+```json
+{"query":"شرایط فسخ قرارداد چیست؟", "top_k":5}
+```
+
+`POST /api/v1/contracts/embed-chunk` و `POST /api/v1/contracts/search` همچنان وجود دارند، اما تغییر ناسازگار پذیرفته‌شده دارند: هر دو `contract_id` الزامی دارند، فقط Redis قرارداد را استفاده می‌کنند و برای قرارداد ناموجود یا غیرمالک `404` برمی‌گردانند. ورودی فاقد `contract_id` با `422` رد می‌شود.
+
+### اجرای Redis و ملاحظات محرمانگی
+
+با `docker compose up -d redis redis-contracts` هر دو Redis را اجرا کنید. Redis قرارداد RDB و AOF ندارد، `noeviction` دارد و هیچ پورتی روی host منتشر نمی‌کند. مقادیر `CONTRACT_REDIS_URL`، `CONTRACT_REDIS_MAX_MEMORY`، `CONTRACT_TTL_SECONDS`، `CONTRACT_MAX_ACTIVE_PER_USER`، `CONTRACT_MAX_PAYLOAD_BYTES` و `CONTRACT_PROCESSING_CONCURRENCY` در `.env.example` مستند شده‌اند.
+
+تصویر برنامه `TMPDIR=/tmp/contract-guard` دارد. در production این مسیر را با tmpfs محدود mount کنید؛ برای نمونه: `--tmpfs /tmp/contract-guard:rw,noexec,nosuid,size=128m`. Compose فعلی فقط سرویس‌های backing را تعریف می‌کند، پس سرویس application در deployment باید mount معادل داشته باشد. در Windows Development این تضمین تنها با Docker یا RAM disk قابل دستیابی است. همچنین swap، core dump، backup و ثبت payload در log/APM باید در سطح زیرساخت کنترل شوند. TTL حذف منطقی Redis است و حذف فوری تمام کپی‌های فیزیکی در RAM را تضمین نمی‌کند.
+
 بک‌اند FastAPI برای دریافت و آماده‌سازی قراردادهای فارسی. نسخهٔ فعلی ورود با شمارهٔ موبایل، استخراج متن از PDF/DOCX، تفکیک و دسته‌بندی بندها، چانک‌سازی، تولید embedding محلی و جست‌وجوی معنایی میان چانک‌های همان کاربر را فراهم می‌کند.
 
 > این پروژه ابزار کمکی پردازش متن است و جایگزین مشاوره یا نظر حقوقی نیست.

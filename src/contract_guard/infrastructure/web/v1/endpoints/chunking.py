@@ -33,6 +33,7 @@ class ClauseChunk(BaseModel):
 
 @router.post("/contracts/chunk", response_model=list[ClauseChunk], tags=["contracts"])
 def chunk_contract(body: ChunkRequest, user=Depends(current_session)):
+    """Chunk legacy input without persisting it outside the request."""
     return ClauseChunker().chunk_clauses(
         body.contract_id, [clause.model_dump(exclude_none=True) for clause in body.clauses]
     )

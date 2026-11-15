@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "nodeCount": 291,
-    "edgeCount": 607,
+    "nodeCount": 327,
+    "edgeCount": 676,
     "languages": [
       "python"
     ],
@@ -588,6 +588,285 @@
       "owner": "SemanticSearchService"
     },
     {
+      "id": "src/contract_guard/application/services/temporary_contracts.py",
+      "name": "temporary_contracts.py",
+      "kind": "file",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L1-L139",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "621648d9f8ddd846c8941442fe7d8c0b62f284618016debf99fc424c404e54ba",
+      "chars": 7526,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#InvalidEmbeddingError",
+      "name": "InvalidEmbeddingError",
+      "kind": "class",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L23-L24",
+      "signature": "class InvalidEmbeddingError(ValueError)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "d2aabf09f4757ef545b77df73557807dbf0717bc611bff87fb6e7fc6ec96f095",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "name": "TemporaryContractService",
+      "kind": "class",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L27-L138",
+      "signature": "class TemporaryContractService",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "b85f36ce272af41b480d25292ef5e05246fbb41482288b02c38324d569dd1c3e",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.__init__",
+      "name": "__init__",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L32-L35",
+      "signature": "def __init__(self, repository: TemporaryContractStore, embedding_service: LocalEmbeddingService | None = None)",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "9f304ed5a157f995cc4fdd48cdeebacb6dc14d334b4618870342aad0fcf1422d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._embedding_gate",
+      "name": "_embedding_gate",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L98-L106",
+      "signature": "def _embedding_gate(self) -> asyncio.Semaphore",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "0f425e8abfb1e2bcae2df4b89f1ccb3f9c6eaa7dfdb6648fff193905698a305a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._rank",
+      "name": "_rank",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L125-L138",
+      "signature": "def _rank(cls, contract: dict[str, Any], query_vector: Sequence[float], top_k: int) -> list[dict[str, Any]]",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "450ece420c922717d4cd052907ac149266b24018e52daec07df1ed216a825d60",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._validate_vector",
+      "name": "_validate_vector",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L117-L122",
+      "signature": "def _validate_vector(vector: Sequence[float]) -> list[float]",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "9850d26cf7370e54c97a9559ede8ca047c8dc8eebba10e67d56ce8d1b536393d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.chunk",
+      "name": "chunk",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L65-L77",
+      "signature": "async def chunk(self, contract_id: str, owner_id: str, clauses: list[dict[str, Any]] | None = None) -> list[dict[str, Any]]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "7329a3e9a748f28f19da483c5842b89b0c787d7a13cafad06f16594c16d403ac",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.chunk.apply",
+      "name": "apply",
+      "kind": "function",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L68-L75",
+      "signature": "def apply(contract: dict[str, Any]) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "be2fa916494881752343b836eb5e8d54b3273c5c2a6a1759c00273bcdf4b47a0",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.classify",
+      "name": "classify",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L55-L63",
+      "signature": "async def classify(self, contract_id: str, owner_id: str, classifications: list[dict[str, Any]]) -> dict[str, Any]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "5160a5743102294b47cd99046974d2a7d07fcd83d72f8bd28541ffa91f53643d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.classify.apply",
+      "name": "apply",
+      "kind": "function",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L57-L62",
+      "signature": "def apply(contract: dict[str, Any]) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "57c89fdc03013e80731677342746d44ab082856fafc1960583532fed0ecb3207",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.create",
+      "name": "create",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L37-L53",
+      "signature": "async def create(self, contract_id: str, owner_id: str, extracted: dict[str, Any]) -> dict[str, Any]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "d1c3017b695a5d5f05d6251916578e283c3c462a867ab4e2bcec2cdac67605fb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed",
+      "name": "embed",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L79-L96",
+      "signature": "async def embed(self, contract_id: str, owner_id: str, chunks: Sequence[dict[str, Any]] | None = None) -> int",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "8cce094e1e150f2fd5cb78ac0192be2c9c3c3f9821964802f6646152d83d679f",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed.apply",
+      "name": "apply",
+      "kind": "function",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L91-L94",
+      "signature": "def apply(updated: dict[str, Any]) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "3e65d41a68a16f360e67bbdfbc6509792afd8440cc0275f6db54a6cddde72984",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.search",
+      "name": "search",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L108-L114",
+      "signature": "async def search(self, contract_id: str, owner_id: str, query: str, top_k: int) -> list[dict[str, Any]]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "f7dac6e090ab88688d1c6cdcf84ba3bdbeaaf48ffdf5a4f313faaf7ae6924d84",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractService"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore",
+      "name": "TemporaryContractStore",
+      "kind": "class",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L14-L20",
+      "signature": "class TemporaryContractStore(Protocol)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "e677d870d9534a1380efbf78d62824bd4a8c54e017f8daba8f58d09929cd0552",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore.create_contract",
+      "name": "create_contract",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L18-L18",
+      "signature": "async def create_contract(self, contract: dict[str, Any]) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c6fd263a5d41ab205b5766fbc71ffb83358de5fcd0aae30cae5003032eb5c8eb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractStore"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore.get_contract",
+      "name": "get_contract",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L19-L19",
+      "signature": "async def get_contract(self, contract_id: str, owner_id: str) -> dict[str, Any]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "e6d7d7cdd84ef4ca9906e2eaba37ab46fae905dab77ba4716db3446dccb710a2",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractStore"
+    },
+    {
+      "id": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore.update_contract",
+      "name": "update_contract",
+      "kind": "method",
+      "path": "src/contract_guard/application/services/temporary_contracts.py",
+      "span": "L20-L20",
+      "signature": "async def update_contract(self, contract_id: str, owner_id: str, update: Any) -> dict[str, Any]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "57c2f268590338b6147cf6ba926ba6403963fdfc1bd91ea037548d8af134022d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractStore"
+    },
+    {
       "id": "src/contract_guard/application/use_cases/__init__.py",
       "name": "__init__.py",
       "kind": "file",
@@ -1158,12 +1437,12 @@
       "name": "settings.py",
       "kind": "file",
       "path": "src/contract_guard/config/settings.py",
-      "span": "L1-L41",
+      "span": "L1-L54",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "b0ed662b0eaceed45c89ab7f80ae8fca3d0d454d8e35c3f1380229eaa8969f10",
-      "chars": 1582,
+      "body_hash": "5e3f943e8cdd9a5d90d49af9c85e9ac4fcb8ccacbec76f39aca6c8099e089916",
+      "chars": 2326,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -1187,14 +1466,29 @@
       "name": "Settings",
       "kind": "class",
       "path": "src/contract_guard/config/settings.py",
-      "span": "L11-L40",
+      "span": "L11-L53",
       "signature": "class Settings(BaseSettings)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "1b271794c352f046668dce5e8fea7b7f7cb47f19f5fdac68db8808840f416892",
+      "body_hash": "ee7303fefaad037223b4a2f43e71a195ff5f60fe3b3a84ea500f6834f478fe5b",
       "summary_state": "pending",
       "summary": null,
       "crux": null
+    },
+    {
+      "id": "src/contract_guard/config/settings.py#Settings.validate_contract_limits",
+      "name": "validate_contract_limits",
+      "kind": "method",
+      "path": "src/contract_guard/config/settings.py",
+      "span": "L49-L53",
+      "signature": "def validate_contract_limits(self) -> \"Settings\"",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "0c5c3ec4beb3bc6dbe9e97b7640029bf69403a97d653575cc3dbb5bdd0f317d3",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "Settings"
     },
     {
       "id": "src/contract_guard/domain/__init__.py",
@@ -1810,6 +2104,197 @@
       "crux": null
     },
     {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "name": "contract_repository.py",
+      "kind": "file",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L1-L141",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "bf7e7e9a28e817d9bbc78d7e824470b73039a89a96de2c4651bcf3609b022f34",
+      "chars": 6426,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractCapacityError",
+      "name": "ContractCapacityError",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L22-L23",
+      "signature": "class ContractCapacityError(ContractStorageError)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "3d9ff6daf86219ae89b5a12acba8a4d209b2760be55a3023e9cd18a28245ff6a",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
+      "name": "ContractNotFoundError",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L18-L19",
+      "signature": "class ContractNotFoundError(LookupError)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "1899d4cab0b9ecad29212ca8fc3e1c05ec37eb33b50307f3f378df6c5bf10d62",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "name": "ContractStorageError",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L14-L15",
+      "signature": "class ContractStorageError(RuntimeError)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "9c3659ecbf02f0c2bc812bb40d1b2ea90eadb9dd6cbd41a53742e55a8986d6e4",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "name": "TemporaryContractRepository",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L26-L140",
+      "signature": "class TemporaryContractRepository",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a9eff9aa9689bc0390a4656d94dc2ea576c0a6747fc6f5a3efd683b8328362b9",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.__init__",
+      "name": "__init__",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L48-L56",
+      "signature": "def __init__(self, client: Redis | None = None, settings: Settings | None = None)",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "8f416c888458d8d7bf59cf8e587214116ab980fb83712c85e2e65ae07561c9e7",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._key",
+      "name": "_key",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L58-L60",
+      "signature": "def _key(self, contract_id: str) -> str",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "0099669e13974f841a2fc245e04dd518b98b4e1385782c06025d68ef4347f7fa",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._owner_key",
+      "name": "_owner_key",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L62-L64",
+      "signature": "def _owner_key(self, owner_id: str) -> str",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "0cc6670223b8e65a1ea85bf601c7503bd3bd6005e8ef9123a79d3506f5c6a25d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.create_contract",
+      "name": "create_contract",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L66-L80",
+      "signature": "async def create_contract(self, contract: dict[str, Any]) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "5b202e77dfb864e45f33a8a48e920a5e116d133def832a1f31824ecccf9c6584",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.delete_contract",
+      "name": "delete_contract",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L122-L129",
+      "signature": "async def delete_contract(self, contract_id: str, owner_id: str) -> None",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "88f087b36bce7c6c471ca684a3f5b6db6c3d9b6b089843dee0808a27d6eb1703",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract",
+      "name": "get_contract",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L82-L93",
+      "signature": "async def get_contract(self, contract_id: str, owner_id: str) -> dict[str, Any]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "6f25967c6a787c9a5d0db9ff2e30ac30a610d73ab9e0d187e4d4149a42eec3e1",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract_ttl",
+      "name": "get_contract_ttl",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L131-L140",
+      "signature": "async def get_contract_ttl(self, contract_id: str, owner_id: str) -> int",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "5efbacdde5c0e320f729cffed3ec5d2aa22eed29805b1a3ff7e7b63acc578361",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
+      "id": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.update_contract",
+      "name": "update_contract",
+      "kind": "method",
+      "path": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "span": "L95-L120",
+      "signature": "async def update_contract(self, contract_id: str, owner_id: str, update: Callable[[dict[str, Any]], None]) -> dict[str, Any]",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "dabf27a2516b26a14951a189768cb4345874dee39d60c2cc4203f9d4aded1ceb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "TemporaryContractRepository"
+    },
+    {
       "id": "src/contract_guard/infrastructure/cache/create_challenge.py",
       "name": "create_challenge.py",
       "kind": "file",
@@ -1983,65 +2468,6 @@
       "summary_state": "pending",
       "summary": null,
       "crux": null
-    },
-    {
-      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "name": "contract_repo.py",
-      "kind": "file",
-      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "span": "L1-L37",
-      "signature": null,
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "fdea90e729c82fec37e15ed1210a05ccbb53a0ccc33b424d01d7914e53b25085",
-      "chars": 1736,
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
-      "name": "ContractRepository",
-      "kind": "class",
-      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "span": "L6-L36",
-      "signature": "class ContractRepository",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "a41b5a178d84039a333c84095ea9158a5eb8079c2134f550ef529d59c522b6eb",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
-      "name": "save_chunk_embedding",
-      "kind": "method",
-      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "span": "L7-L19",
-      "signature": "def save_chunk_embedding(self, user_id, contract_id: str, chunk_id: str, text: str, embedding: list[float]) -> None",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "c8aa18c52eec27bbfe8f81b5c620c8ab57e5d3e9d46ecedf36544a9d2078166e",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null,
-      "owner": "ContractRepository"
-    },
-    {
-      "id": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
-      "name": "search_similar_chunks",
-      "kind": "method",
-      "path": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "span": "L21-L36",
-      "signature": "def search_similar_chunks(self, query_embedding: list[float], limit: int = 5, *, user_id) -> list[dict]",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "4513ec7e36e3d0aa8a7ba7346caf1d04d9d82ca943e8c7ada6055da39c6aede6",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null,
-      "owner": "ContractRepository"
     },
     {
       "id": "src/contract_guard/infrastructure/database/repositories/legal_kb_repo.py",
@@ -2709,12 +3135,12 @@
       "name": "chunking.py",
       "kind": "file",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/chunking.py",
-      "span": "L1-L39",
+      "span": "L1-L40",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "050236f181d79539d6783eb78cf9cc475df400175498c0f5f9d39d7ffae0757c",
-      "chars": 1195,
+      "body_hash": "40e9ff1631c9ed90475b5063b795d4e164c3cabbed938058be0f85109f6ae08f",
+      "chars": 1267,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2724,11 +3150,11 @@
       "name": "chunk_contract",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/chunking.py",
-      "span": "L35-L38",
+      "span": "L35-L39",
       "signature": "def chunk_contract(body: ChunkRequest, user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "933f8c980f003bb5746e21dc3f15b2512edf75cfdf0fdfb8860dbc884bef1084",
+      "body_hash": "2f87043539cfdd375dde23d2e6f2c44ecea2d66e75285b531fad81ed486c805f",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2776,16 +3202,199 @@
       "crux": null
     },
     {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "name": "contracts.py",
+      "kind": "file",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L1-L122",
+      "signature": null,
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "652632e8049a5cc76e24399ca4b1c7d1149777a4d3c8b850b409b3675812f12b",
+      "chars": 6244,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "name": "_raise_storage_error",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L36-L42",
+      "signature": "def _raise_storage_error(exc: Exception) -> None",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "4ab470aaca6ea673eb87742c4ee3a1678b07523606f1ec43f8d0dca1c8d434ad",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "name": "_service",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L31-L33",
+      "signature": "def _service() -> TemporaryContractService",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "a4a78e56e9f1f5efc7b8c2938465cb349ae69d0c3bbea62fa71c31100ed0cb6d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#chunk_stored_contract",
+      "name": "chunk_stored_contract",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L93-L98",
+      "signature": "async def chunk_stored_contract(contract_id: str, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a427eaf31dc1baa1e388fdba75935194693dd7083a04d37b9123e6aa8abd0c78",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#classify_stored_contract",
+      "name": "classify_stored_contract",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L79-L89",
+      "signature": "async def classify_stored_contract(contract_id: str, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "6fdb1d505427e181d19d41f82588c5e73b1d97950ed583a54bfa5a2eeba2d61f",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#create_contract",
+      "name": "create_contract",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L46-L54",
+      "signature": "async def create_contract(request: Request, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "2bac6e7f99d3138ee6f2d0b55e1e22a74814b9b74861e69fa5f5159dde389ecb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#delete_contract",
+      "name": "delete_contract",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L70-L75",
+      "signature": "async def delete_contract(contract_id: str, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "89d43ceb02277391a44d99016b5ad571b0123ea920e5dc855eb8fdc3862bb3ac",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#embed_stored_contract",
+      "name": "embed_stored_contract",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L102-L110",
+      "signature": "async def embed_stored_contract(contract_id: str, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "eed7cdf5ed617309636dc78aff58b446aa3365c0154699da124090dc7f6b8a6f",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#get_contract",
+      "name": "get_contract",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L58-L66",
+      "signature": "async def get_contract(contract_id: str, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c585d596227e38b812bc858a3fca40711866a449b0bb36f081dcb12e86af335b",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#search_stored_contract",
+      "name": "search_stored_contract",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L114-L121",
+      "signature": "async def search_stored_contract(contract_id: str, body: SearchContractRequest, user=Depends(current_session))",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "db7da57330baccaabe83021c25ab3e2a5fcfdc3f7dca9829fb2ca2bc2a45ae88",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#SearchContractRequest",
+      "name": "SearchContractRequest",
+      "kind": "class",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "span": "L25-L28",
+      "signature": "class SearchContractRequest(BaseModel)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "a9342a9d09d1ccd1697308aadd9cf346ab907a8ceac5096ca8f679dec5a16e03",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
       "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
       "name": "embedding.py",
       "kind": "file",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L1-L77",
+      "span": "L1-L84",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "fdc3aab3e4b3be56672a631858f6e13f4ca34a42537db46cf8098f312ed31b25",
-      "chars": 3752,
+      "body_hash": "58953155cb679bc88c4896b442c1931b265ad5678a1896f6cc6dce304952c792",
+      "chars": 3722,
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_service",
+      "name": "_service",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L51-L53",
+      "signature": "def _service() -> TemporaryContractService",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "bb318c8496582c2fe0aba8ac8703a501ffdf4418362485f8545c598f406e0bcb",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_storage_http_error",
+      "name": "_storage_http_error",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "span": "L56-L60",
+      "signature": "def _storage_http_error(exc: Exception) -> HTTPException",
+      "exported": false,
+      "origin": "ast",
+      "body_hash": "df4c2bd0e83f20ac7848b6c51132d49217946360ab8d0e98ca694797cae83a10",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2795,11 +3404,11 @@
       "name": "embed_chunk",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L27-L30",
-      "signature": "def embed_chunk(body: EmbedChunkRequest, user=Depends(current_session))",
+      "span": "L64-L72",
+      "signature": "async def embed_chunk(body: EmbedChunkRequest, user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "684164fb2ab5cdc58de93a7ec96eece2ef7a615615b9a0a11a5421301328cd2a",
+      "body_hash": "bffcbc3ff26f2155cb765d93cabf033a75fb498e45435c9c4ea52f5c6abce4a1",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2809,11 +3418,11 @@
       "name": "EmbedChunkRequest",
       "kind": "class",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L15-L18",
+      "span": "L13-L17",
       "signature": "class EmbedChunkRequest(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "5def8396feaa2d615b8522f90f9dc40cc78a107ba5ac270c3e8dd45709a057d7",
+      "body_hash": "237c67012247ad528c550af221025847bab4ed1347614f9903727857657660ab",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2823,11 +3432,11 @@
       "name": "EmbedChunkResponse",
       "kind": "class",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L21-L23",
+      "span": "L20-L23",
       "signature": "class EmbedChunkResponse(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "108e6906bd1d25bcd174503a423c8953b4187f9520312572172edb4c79acee08",
+      "body_hash": "5b19fae1b49499fbd0424339d14f7744a028d3f74bd4a52ae8c69a16ab585011",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2837,11 +3446,11 @@
       "name": "search_chunks",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L67-L76",
-      "signature": "def search_chunks(body: SearchRequest, user=Depends(current_session))",
+      "span": "L76-L83",
+      "signature": "async def search_chunks(body: SearchRequest, user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "0260006998774922b978b7780504983d2e5d41e8d2a0e06dcf18ebf88ea297db",
+      "body_hash": "14ba17f58a9c05e0d4fd29993c388be4144963b75797ff24d83eb51c578d4ba1",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2851,11 +3460,11 @@
       "name": "SearchRequest",
       "kind": "class",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L33-L45",
+      "span": "L26-L40",
       "signature": "class SearchRequest(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "32869dd18432baca294b5860f24c21f6f0be5a9f5832be1469304202132cb13a",
+      "body_hash": "460c96def23992f557d16c4582e97df1b47bf2e6cfd84a249bcc86ca8ba7ada5",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2865,11 +3474,11 @@
       "name": "validate_query",
       "kind": "method",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L41-L45",
+      "span": "L35-L40",
       "signature": "def validate_query(cls, value: str) -> str",
       "exported": true,
       "origin": "ast",
-      "body_hash": "e52a0f5e3b340cbc5b3a91b8a8b4200cb291dc971310960cde8f3f8926b9fc14",
+      "body_hash": "ebc8ef9cbd64d6acd6feb1c5726f732784bc28d082f892b36443d6867b148ff0",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
@@ -2880,11 +3489,11 @@
       "name": "SimilarChunkResponse",
       "kind": "class",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "span": "L48-L52",
+      "span": "L43-L48",
       "signature": "class SimilarChunkResponse(BaseModel)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "360617536c39f726cc694a7d8b471483b955f9f7b449441d7f28d453b7a3716b",
+      "body_hash": "070c545483235f23f86ac02a9a1cca6c969fc28f1a41e727544f55db08f9800d",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2894,12 +3503,12 @@
       "name": "ingestion.py",
       "kind": "file",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L1-L72",
+      "span": "L1-L77",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "923ca20c80d85679322a2ee776e235d38a96575ad97869820d9eb13bee309683",
-      "chars": 4659,
+      "body_hash": "13339ac90afd4d1d0bd2cc63ebc914c97c0725443fd0aebf3cda6fe86254d993",
+      "chars": 4920,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -2909,21 +3518,35 @@
       "name": "extract_contract",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L19-L71",
+      "span": "L74-L76",
       "signature": "async def extract_contract(request: Request, user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "2e53233350644237b703e24763c389ceb98c2f0b15e8ee4dff29f56ca91cef14",
+      "body_hash": "f53463721b026136e314c5186c74a68812496a1a8e0e74b28dd7d46d037dde3b",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.finished",
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "name": "read_contract_upload",
+      "kind": "function",
+      "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
+      "span": "L18-L70",
+      "signature": "async def read_contract_upload(request: Request, maximum: int) -> dict",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "91bb452f0b7a51ed0f5643d1bca1e5eeba89675f64032e5e29895f5f9f201f1d",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null
+    },
+    {
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.finished",
       "name": "finished",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L47-L47",
+      "span": "L46-L46",
       "signature": "def finished()",
       "exported": true,
       "origin": "ast",
@@ -2933,11 +3556,11 @@
       "crux": null
     },
     {
-      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.header_end",
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.header_end",
       "name": "header_end",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L36-L39",
+      "span": "L35-L38",
       "signature": "def header_end()",
       "exported": true,
       "origin": "ast",
@@ -2947,11 +3570,11 @@
       "crux": null
     },
     {
-      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.header_field",
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.header_field",
       "name": "header_field",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L30-L32",
+      "span": "L29-L31",
       "signature": "def header_field(data, start, end)",
       "exported": true,
       "origin": "ast",
@@ -2961,11 +3584,11 @@
       "crux": null
     },
     {
-      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.header_value",
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.header_value",
       "name": "header_value",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L33-L35",
+      "span": "L32-L34",
       "signature": "def header_value(data, start, end)",
       "exported": true,
       "origin": "ast",
@@ -2975,11 +3598,11 @@
       "crux": null
     },
     {
-      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.headers_finished",
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.headers_finished",
       "name": "headers_finished",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L40-L43",
+      "span": "L39-L42",
       "signature": "def headers_finished()",
       "exported": true,
       "origin": "ast",
@@ -2989,11 +3612,11 @@
       "crux": null
     },
     {
-      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.part_begin",
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.part_begin",
       "name": "part_begin",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L27-L29",
+      "span": "L26-L28",
       "signature": "def part_begin()",
       "exported": true,
       "origin": "ast",
@@ -3003,11 +3626,11 @@
       "crux": null
     },
     {
-      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.part_data",
+      "id": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.part_data",
       "name": "part_data",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
-      "span": "L44-L46",
+      "span": "L43-L45",
       "signature": "def part_data(data, start, end)",
       "exported": true,
       "origin": "ast",
@@ -3137,12 +3760,12 @@
       "name": "taxonomy.py",
       "kind": "file",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/taxonomy.py",
-      "span": "L1-L19",
+      "span": "L1-L20",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "6945c5b44dbba0a9d1155a44aef3981c5a85e478b34d6b36acd722e0eb5270da",
-      "chars": 870,
+      "body_hash": "16cc0a7233c8aace566581767969867397a8011f51a73b8b1abe042b19dcccd1",
+      "chars": 953,
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3152,11 +3775,11 @@
       "name": "classify_contract",
       "kind": "function",
       "path": "src/contract_guard/infrastructure/web/v1/endpoints/taxonomy.py",
-      "span": "L17-L18",
+      "span": "L17-L19",
       "signature": "async def classify_contract(body: ClassifyRequest, user=Depends(current_session))",
       "exported": true,
       "origin": "ast",
-      "body_hash": "9588f5d615c3e064556eaecbf98a8e39078bf25db809dad450dbe6fe29cf3406",
+      "body_hash": "830164acd9fb439b914ba297f3e89a4d4ea7abd69d09a9de43a2519fc972b982",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -3242,307 +3865,210 @@
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "d2633a750fcead554d45e05d593284c2ee6bcf53564c020d9517fa635d54b08a",
-      "chars": 379,
+      "body_hash": "a814ccd2137c839b90fceabca84b28e6a9015d8dc39b2802664df504569062f1",
+      "chars": 401,
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_embedding.py",
-      "name": "test_embedding.py",
+      "id": "tests/test_temporary_contracts.py",
+      "name": "test_temporary_contracts.py",
       "kind": "file",
-      "path": "tests/test_embedding.py",
-      "span": "L1-L39",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L1-L80",
       "signature": null,
       "exported": true,
       "origin": "ast",
-      "body_hash": "431b698bc45651ed3d61be2fb396b8fb56507c2a518af37a6e9fc746b15d37f8",
-      "chars": 1820,
+      "body_hash": "8491ca41109bc48872a579ba1e58c38396c97c46c423e51f9100edb7c391e3f8",
+      "chars": 3275,
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_embedding.py#test_embed_endpoint_requires_authentication",
-      "name": "test_embed_endpoint_requires_authentication",
-      "kind": "function",
-      "path": "tests/test_embedding.py",
-      "span": "L36-L38",
-      "signature": "def test_embed_endpoint_requires_authentication()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "56fe5a7df395b94847720c81853b5a5c786c999e28a4c171261a564bdd233b82",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_embedding.py#test_embed_endpoint_saves_and_reports_dimension",
-      "name": "test_embed_endpoint_saves_and_reports_dimension",
-      "kind": "function",
-      "path": "tests/test_embedding.py",
-      "span": "L23-L33",
-      "signature": "def test_embed_endpoint_saves_and_reports_dimension()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "3cbb310af10c55d488d5c0259b4d505292f864ee549bd35d68b30b22a9b4a3d1",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_embedding.py#test_embedding_model_is_reused",
-      "name": "test_embedding_model_is_reused",
-      "kind": "function",
-      "path": "tests/test_embedding.py",
-      "span": "L10-L20",
-      "signature": "def test_embedding_model_is_reused()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "9b90835c344c0b6d98139d0f1fb9c2ccc190a81c391cdbcdb6b986e62911506a",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
-      "name": "Model",
+      "id": "tests/test_temporary_contracts.py#Embedder",
+      "name": "Embedder",
       "kind": "class",
-      "path": "tests/test_embedding.py",
-      "span": "L11-L16",
-      "signature": "class Model",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L43-L49",
+      "signature": "class Embedder",
       "exported": true,
       "origin": "ast",
-      "body_hash": "caee4ce664bb3dc52220541fa1def8a3a4407efe0c725dbf4097ccdbefb736d3",
+      "body_hash": "bfe47e15d29f96d74cb5635a1e9745a74318d464cba57fe7435a4217ed52f4af",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
-      "name": "encode",
+      "id": "tests/test_temporary_contracts.py#Embedder.embed_text",
+      "name": "embed_text",
       "kind": "method",
-      "path": "tests/test_embedding.py",
-      "span": "L12-L16",
-      "signature": "def encode(self, text, **kwargs)",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L45-L49",
+      "signature": "def embed_text(self, text)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "ff20c052703ad64975640b7a4ddcf12d334829c4600d37d83d06deebae338583",
+      "body_hash": "2e229dabaa32ad1d2c717c41ea5c055e40807c44ddd10926c283ec90b0a16bf4",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
-      "owner": "Model"
+      "owner": "Embedder"
     },
     {
-      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
-      "name": "Vector",
+      "id": "tests/test_temporary_contracts.py#Repository",
+      "name": "Repository",
       "kind": "class",
-      "path": "tests/test_embedding.py",
-      "span": "L13-L15",
-      "signature": "class Vector",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L18-L40",
+      "signature": "class Repository",
       "exported": true,
       "origin": "ast",
-      "body_hash": "61f6801552e5424bcadb85c3dfd055ad32aa7dd77321e561dc4c8f62031dbad2",
+      "body_hash": "53f453efe79b7845abc8458dca5350eddec845dcb93ea8c162b6c89fd63b13a9",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector.tolist",
-      "name": "tolist",
+      "id": "tests/test_temporary_contracts.py#Repository.__init__",
+      "name": "__init__",
       "kind": "method",
-      "path": "tests/test_embedding.py",
-      "span": "L14-L15",
-      "signature": "def tolist(self)",
-      "exported": true,
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L20-L22",
+      "signature": "def __init__(self)",
+      "exported": false,
       "origin": "ast",
-      "body_hash": "cbc64e2a581439563a7ce900650c87119680100742141f8a8e221b8c32d83f2c",
+      "body_hash": "011896506def0f408ace9631aaa6e4700b6a679da88cd8172742aa3f9c86690d",
       "summary_state": "pending",
       "summary": null,
       "crux": null,
-      "owner": "Vector"
+      "owner": "Repository"
     },
     {
-      "id": "tests/test_semantic_search_integration.py",
-      "name": "test_semantic_search_integration.py",
-      "kind": "file",
-      "path": "tests/test_semantic_search_integration.py",
-      "span": "L1-L94",
-      "signature": null,
+      "id": "tests/test_temporary_contracts.py#Repository.create_contract",
+      "name": "create_contract",
+      "kind": "method",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L24-L26",
+      "signature": "async def create_contract(self, contract)",
       "exported": true,
       "origin": "ast",
-      "body_hash": "2f1558704f6be120dcc6a56413321e9a696bb922bca79184ffe89eaacc56c6b0",
-      "chars": 5053,
+      "body_hash": "00157acfd5c9e45fbeaf49e4f680abc9120d7db3a0d5e333af04f89fdac0d3bf",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "Repository"
+    },
+    {
+      "id": "tests/test_temporary_contracts.py#Repository.get_contract",
+      "name": "get_contract",
+      "kind": "method",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L28-L33",
+      "signature": "async def get_contract(self, contract_id, owner_id)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "98f28162c114f63da34e2342b315b80bbea5cc65a2379a76677dfaa919c97612",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "Repository"
+    },
+    {
+      "id": "tests/test_temporary_contracts.py#Repository.update_contract",
+      "name": "update_contract",
+      "kind": "method",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L35-L40",
+      "signature": "async def update_contract(self, contract_id, owner_id, update)",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "eded795f08e81c4bfa272825e7d80659a8b819d762e683613f81558c0a609e8f",
+      "summary_state": "pending",
+      "summary": null,
+      "crux": null,
+      "owner": "Repository"
+    },
+    {
+      "id": "tests/test_temporary_contracts.py#Settings",
+      "name": "Settings",
+      "kind": "class",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L12-L15",
+      "signature": "class Settings",
+      "exported": true,
+      "origin": "ast",
+      "body_hash": "c396f9b79078a697e1ab5703b86172f6cdd455782e29147d0b9b41ed4bce8eb9",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
-      "name": "test_pgvector_ranking_and_owner_isolation",
+      "id": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract",
+      "name": "test_contract_search_is_scoped_to_the_selected_contract",
       "kind": "function",
-      "path": "tests/test_semantic_search_integration.py",
-      "span": "L19-L43",
-      "signature": "def test_pgvector_ranking_and_owner_isolation()",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L52-L62",
+      "signature": "def test_contract_search_is_scoped_to_the_selected_contract()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "8dd40bb0ef7f3b4d047e8932747160f90d443fb7b8c88dfcf116e31210833ff6",
+      "body_hash": "91a0894e9dafb438d876b37a3cb3f514f2699488e5e3901900be7c300d9198b3",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation.test_database",
-      "name": "test_database",
+      "id": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "name": "scenario",
       "kind": "function",
-      "path": "tests/test_semantic_search_integration.py",
-      "span": "L30-L31",
-      "signature": "def test_database()",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L54-L61",
+      "signature": "async def scenario()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "e556485797060b0908881ef7da6e94fceedb6f78cb45b62aff616f206534a3f1",
+      "body_hash": "0396259c53193df47cd724fe6a082485549f46f29d4c58fb9daa86bd7b7efbca",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
-      "name": "test_real_persian_search_with_authenticated_user",
+      "id": "tests/test_temporary_contracts.py#test_invalid_embedding_dimension_is_rejected",
+      "name": "test_invalid_embedding_dimension_is_rejected",
       "kind": "function",
-      "path": "tests/test_semantic_search_integration.py",
-      "span": "L46-L93",
-      "signature": "def test_real_persian_search_with_authenticated_user(monkeypatch)",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L76-L79",
+      "signature": "def test_invalid_embedding_dimension_is_rejected()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "e3d8db508545e21ba7f8d86093305eab7e58381ed6305cf679ebd17a3b9b40f4",
+      "body_hash": "74e03e5b3e0d43606b47932e818770476e1c687276b33c87ec839e1ca0515c2b",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_semantic_search.py",
-      "name": "test_semantic_search.py",
-      "kind": "file",
-      "path": "tests/test_semantic_search.py",
-      "span": "L1-L101",
-      "signature": null,
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "f8d8a4943adf5f5ddfa1b369e62bb012e5c4d98c6efe2b656ae2e534d1fc176d",
-      "chars": 5023,
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_semantic_search.py#test_dimension_mismatch_does_not_query_database",
-      "name": "test_dimension_mismatch_does_not_query_database",
+      "id": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract",
+      "name": "test_other_owner_cannot_read_or_update_contract",
       "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L65-L71",
-      "signature": "def test_dimension_mismatch_does_not_query_database()",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L65-L73",
+      "signature": "def test_other_owner_cannot_read_or_update_contract()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "01881dbf4239ab2db6938c8331936c6c485cf451bef92a8111f8d9741580debb",
+      "body_hash": "9d2ec70fac2e9360fddd63c739e0570bfa7a0022402a9e515bbda04bf27795b6",
       "summary_state": "pending",
       "summary": null,
       "crux": null
     },
     {
-      "id": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
-      "name": "test_repository_filters_by_owner_and_orders_by_cosine_distance",
+      "id": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract.scenario",
+      "name": "scenario",
       "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L26-L42",
-      "signature": "def test_repository_filters_by_owner_and_orders_by_cosine_distance()",
+      "path": "tests/test_temporary_contracts.py",
+      "span": "L67-L71",
+      "signature": "async def scenario()",
       "exported": true,
       "origin": "ast",
-      "body_hash": "a1f03f6787335b43b127ce829ffe78f821bf06d832a97cfea3c90a3a46ac4dd0",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance.fake_database",
-      "name": "fake_database",
-      "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L31-L32",
-      "signature": "def fake_database()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "dfd921bcc7805c9f15bf221f6497b1aa2beec61eb12e6824a27a5cfb7aabc52a",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_semantic_search.py#test_search_dependency_errors_are_sanitized",
-      "name": "test_search_dependency_errors_are_sanitized",
-      "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L92-L100",
-      "signature": "def test_search_dependency_errors_are_sanitized(error, status)",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "a5857ed523984c248ceb348054038ed403be0e31b0a0ce54a76d69665ab2cd78",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_semantic_search.py#test_search_embeds_query_and_scopes_repository_to_user",
-      "name": "test_search_embeds_query_and_scopes_repository_to_user",
-      "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L13-L23",
-      "signature": "def test_search_embeds_query_and_scopes_repository_to_user()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "3302a262ca46ddf3b346136edc6aaadc070c67065efe88de7b5a0082c1721f5d",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_semantic_search.py#test_search_endpoint_requires_authentication",
-      "name": "test_search_endpoint_requires_authentication",
-      "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L60-L62",
-      "signature": "def test_search_endpoint_requires_authentication()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "6b00c85070108de1ec74c0fecac0c7d01b8555c4c37614aba946081477b082f8",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_semantic_search.py#test_search_endpoint_returns_results_and_validates_limit",
-      "name": "test_search_endpoint_returns_results_and_validates_limit",
-      "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L45-L57",
-      "signature": "def test_search_endpoint_returns_results_and_validates_limit()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "8a88fc061164f518d40ed231fecd0562e09b4f0451615e8ed71accc86d44f8bc",
-      "summary_state": "pending",
-      "summary": null,
-      "crux": null
-    },
-    {
-      "id": "tests/test_semantic_search.py#test_search_validation_empty_results_and_openapi",
-      "name": "test_search_validation_empty_results_and_openapi",
-      "kind": "function",
-      "path": "tests/test_semantic_search.py",
-      "span": "L74-L88",
-      "signature": "def test_search_validation_empty_results_and_openapi()",
-      "exported": true,
-      "origin": "ast",
-      "body_hash": "42fbf28eeebbfd0ab2aed573767529cf8a0094f7bc66b1ebe95beee0b1e17fce",
+      "body_hash": "ff5bc0e6b707cf6d4387a75e378bca46ef1f053f08d3c39bd6b6d3ca4029ecc6",
       "summary_state": "pending",
       "summary": null,
       "crux": null
@@ -4306,18 +4832,6 @@
       "confidence": "extracted"
     },
     {
-      "source": "migrations/env.py#run_migrations_offline",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "migrations/env.py#run_migrations_online",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
       "source": "migrations/versions/21bda99b36a8_create_legal_knowledge_base_table_with_.py",
       "target": "migrations/versions/21bda99b36a8_create_legal_knowledge_base_table_with_.py#downgrade",
       "relation": "contains",
@@ -4414,12 +4928,6 @@
       "confidence": "extracted"
     },
     {
-      "source": "scripts/seed_legal_kb.py#seed",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
       "source": "src/contract_guard/__main__.py",
       "target": "src/contract_guard/__main__.py#main",
       "relation": "calls",
@@ -4442,12 +4950,6 @@
       "target": "uvicorn",
       "relation": "imports",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/__main__.py#main",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/application/ports/clause_classifier.py",
@@ -4552,12 +5054,6 @@
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/application/services/embedding.py#_get_model",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
       "source": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
       "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService.embed_text",
       "relation": "contains",
@@ -4640,6 +5136,204 @@
       "target": "src/contract_guard/application/services/semantic_search.py#EmbeddingDimensionError",
       "relation": "calls",
       "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#InvalidEmbeddingError",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "asyncio",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "collections.abc",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "contract_guard.application.services.chunking",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "contract_guard.application.services.embedding",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "datetime",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py",
+      "target": "typing",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#InvalidEmbeddingError",
+      "target": "ValueError",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.__init__",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._embedding_gate",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._rank",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._validate_vector",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.chunk",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.classify",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.create",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.search",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.__init__",
+      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._rank",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#InvalidEmbeddingError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._rank",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._validate_vector",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._validate_vector",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#InvalidEmbeddingError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.chunk",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.chunk.apply",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.chunk.apply",
+      "target": "src/contract_guard/application/services/chunking.py#ClauseChunker",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.classify",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.classify.apply",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._embedding_gate",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService._validate_vector",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed.apply",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore.create_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore.get_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore.update_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractStore",
+      "target": "Protocol",
+      "relation": "extends",
+      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/application/use_cases/classify_clauses.py",
@@ -4796,12 +5490,6 @@
       "target": "sys",
       "relation": "imports",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/application/use_cases/extract_document.py#extract_document",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/application/use_cases/ingest_contract.py",
@@ -4997,12 +5685,6 @@
     },
     {
       "source": "src/contract_guard/application/use_cases/refresh_session.py#refresh_session",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/application/use_cases/refresh_session.py#refresh_session",
       "target": "src/contract_guard/infrastructure/database/session.py#database",
       "relation": "calls",
       "confidence": "inferred"
@@ -5030,12 +5712,6 @@
       "target": "fastapi",
       "relation": "imports",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/application/use_cases/request_login.py#request_login",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/application/use_cases/request_login.py#request_login",
@@ -5177,12 +5853,6 @@
     },
     {
       "source": "src/contract_guard/application/use_cases/verify_login.py#verify_login",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/application/use_cases/verify_login.py#verify_login",
       "target": "src/contract_guard/infrastructure/cache/consume_challenge.py#consume_challenge",
       "relation": "calls",
       "confidence": "inferred"
@@ -5234,6 +5904,12 @@
       "target": "str",
       "relation": "extends",
       "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/config/settings.py#Settings",
+      "target": "src/contract_guard/config/settings.py#Settings.validate_contract_limits",
+      "relation": "contains",
+      "confidence": "extracted"
     },
     {
       "source": "src/contract_guard/config/settings.py#Settings",
@@ -5542,12 +6218,6 @@
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/cache/challenge_keys.py#challenge_keys",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
       "source": "src/contract_guard/infrastructure/cache/consume_challenge.py",
       "target": "src/contract_guard/infrastructure/cache/consume_challenge.py#consume_challenge",
       "relation": "contains",
@@ -5591,12 +6261,6 @@
     },
     {
       "source": "src/contract_guard/infrastructure/cache/consume_challenge.py#consume_challenge",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/cache/consume_challenge.py#consume_challenge",
       "target": "src/contract_guard/infrastructure/cache/challenge_keys.py#challenge_keys",
       "relation": "calls",
       "confidence": "inferred"
@@ -5606,6 +6270,246 @@
       "target": "src/contract_guard/infrastructure/cache/redis_client.py#redis_client",
       "relation": "calls",
       "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractCapacityError",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "collections.abc",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "contract_guard.config.settings",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "datetime",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "redis.asyncio",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "redis.exceptions",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py",
+      "target": "typing",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractCapacityError",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "relation": "extends",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
+      "target": "LookupError",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "target": "RuntimeError",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.__init__",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._key",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._owner_key",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.create_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.delete_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract_ttl",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.update_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.create_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractCapacityError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.create_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.create_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._key",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.create_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._owner_key",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.delete_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.delete_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.delete_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._key",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.delete_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._owner_key",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._key",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract_ttl",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract_ttl",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract_ttl",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._key",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract_ttl",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.get_contract",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.update_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.update_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractStorageError",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository.update_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository._key",
+      "relation": "calls",
+      "confidence": "extracted"
     },
     {
       "source": "src/contract_guard/infrastructure/cache/create_challenge.py",
@@ -5645,12 +6549,6 @@
     },
     {
       "source": "src/contract_guard/infrastructure/cache/create_challenge.py#create_challenge",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/cache/create_challenge.py#create_challenge",
       "target": "src/contract_guard/infrastructure/cache/challenge_keys.py#challenge_keys",
       "relation": "calls",
       "confidence": "inferred"
@@ -5678,12 +6576,6 @@
       "target": "redis",
       "relation": "imports",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/cache/redis_client.py#redis_client",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/database/migrate.py",
@@ -5771,57 +6663,9 @@
     },
     {
       "source": "src/contract_guard/infrastructure/database/models.py#LegalKnowledgeBase",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/models.py#LegalKnowledgeBase",
       "target": "src/contract_guard/infrastructure/database/models.py#Base",
       "relation": "extends",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "target": "contract_guard.infrastructure.database.session",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py",
-      "target": "json",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
-      "target": "src/contract_guard/infrastructure/database/session.py#database",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
-      "target": "src/contract_guard/infrastructure/database/session.py#database",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/database/session.py",
@@ -5852,12 +6696,6 @@
       "target": "psycopg.rows",
       "relation": "imports",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/database/session.py#database",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/llm/taxonomy_gateway.py",
@@ -5894,12 +6732,6 @@
       "target": "src/contract_guard/infrastructure/llm/taxonomy_gateway.py#LLMTaxonomyGateway.classify",
       "relation": "contains",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/llm/taxonomy_gateway.py#LLMTaxonomyGateway.classify",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/parsers/docx_parser.py",
@@ -5948,12 +6780,6 @@
       "target": "src/contract_guard/infrastructure/parsers/docx_parser.py#DocxParser.extract",
       "relation": "contains",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/parsers/docx_parser.py#DocxParser.extract",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/parsers/docx_parser.py#DocxParser.extract",
@@ -6023,12 +6849,6 @@
     },
     {
       "source": "src/contract_guard/infrastructure/parsers/extraction_worker.py#main",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/parsers/extraction_worker.py#main",
       "target": "src/contract_guard/infrastructure/parsers/select_parser.py#select_parser",
       "relation": "calls",
       "confidence": "inferred"
@@ -6068,12 +6888,6 @@
       "target": "src/contract_guard/infrastructure/parsers/pdf_parser.py#PdfParser.extract",
       "relation": "contains",
       "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/parsers/pdf_parser.py#PdfParser.extract",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/parsers/pdf_parser.py#PdfParser.extract",
@@ -6364,6 +7178,288 @@
       "confidence": "inferred"
     },
     {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#chunk_stored_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#classify_stored_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#create_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#delete_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#embed_stored_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#get_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#search_stored_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#SearchContractRequest",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "asyncio",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.application.services.temporary_contracts",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.application.use_cases.classify_clauses",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.config.settings",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.domain.models.taxonomy",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.infrastructure.cache.contract_repository",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.infrastructure.llm.taxonomy_gateway",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.infrastructure.web.dependencies",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "contract_guard.infrastructure.web.v1.endpoints.ingestion",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "datetime",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "fastapi",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "logging",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "pydantic",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "secrets",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py",
+      "target": "typing",
+      "relation": "imports",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#chunk_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#chunk_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#classify_stored_contract",
+      "target": "src/contract_guard/application/use_cases/classify_clauses.py#HybridClauseClassifier",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#classify_stored_contract",
+      "target": "src/contract_guard/infrastructure/llm/taxonomy_gateway.py#LLMTaxonomyGateway",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#classify_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#classify_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#create_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#create_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#create_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#delete_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#delete_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#embed_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#embed_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#get_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#get_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#search_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_raise_storage_error",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#search_stored_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#_service",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/contracts.py#SearchContractRequest",
+      "target": "BaseModel",
+      "relation": "extends",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_service",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_storage_http_error",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
       "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
       "relation": "contains",
@@ -6401,19 +7497,13 @@
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "target": "contract_guard.application.services.embedding",
+      "target": "contract_guard.application.services.temporary_contracts",
       "relation": "imports",
       "confidence": "extracted"
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "target": "contract_guard.application.services.semantic_search",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "target": "contract_guard.infrastructure.database.repositories.contract_repo",
+      "target": "contract_guard.infrastructure.cache.contract_repository",
       "relation": "imports",
       "confidence": "extracted"
     },
@@ -6431,27 +7521,33 @@
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
-      "target": "logging",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py",
       "target": "pydantic",
       "relation": "imports",
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
-      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_service",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_service",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#TemporaryContractRepository",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_service",
       "relation": "calls",
-      "confidence": "inferred"
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_storage_http_error",
+      "relation": "calls",
+      "confidence": "extracted"
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#embed_chunk",
@@ -6473,27 +7569,15 @@
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
-      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_service",
       "relation": "calls",
-      "confidence": "inferred"
+      "confidence": "extracted"
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
-      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#_storage_http_error",
       "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
-      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService.search",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#search_chunks",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
-      "relation": "calls",
-      "confidence": "inferred"
+      "confidence": "extracted"
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/embedding.py#SearchRequest",
@@ -6516,6 +7600,12 @@
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
       "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
       "relation": "contains",
       "confidence": "extracted"
     },
@@ -6593,67 +7683,67 @@
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
       "target": "src/contract_guard/application/use_cases/classify_clauses.py#HybridClauseClassifier",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
       "target": "src/contract_guard/application/use_cases/search_context.py#search_context",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
       "target": "src/contract_guard/infrastructure/llm/taxonomy_gateway.py#LLMTaxonomyGateway",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.finished",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.finished",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.header_end",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.header_end",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.header_field",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.header_field",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.header_value",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.header_value",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.headers_finished",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.headers_finished",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.part_begin",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.part_begin",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract",
-      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#extract_contract.part_data",
+      "source": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload",
+      "target": "src/contract_guard/infrastructure/web/v1/endpoints/ingestion.py#read_contract_upload.part_data",
       "relation": "contains",
       "confidence": "extracted"
     },
@@ -6827,12 +7917,6 @@
     },
     {
       "source": "src/contract_guard/infrastructure/web/v1/endpoints/taxonomy.py#classify_contract",
-      "target": "src/contract_guard/config/settings.py#Settings",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "src/contract_guard/infrastructure/web/v1/endpoints/taxonomy.py#classify_contract",
       "target": "src/contract_guard/infrastructure/llm/taxonomy_gateway.py#LLMTaxonomyGateway",
       "relation": "calls",
       "confidence": "inferred"
@@ -6922,340 +8006,196 @@
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_embedding.py",
-      "target": "tests/test_embedding.py#test_embed_endpoint_requires_authentication",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "tests/test_temporary_contracts.py#Embedder",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_embedding.py",
-      "target": "tests/test_embedding.py#test_embed_endpoint_saves_and_reports_dimension",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "tests/test_temporary_contracts.py#Repository",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_embedding.py",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "tests/test_temporary_contracts.py#Settings",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_embedding.py",
-      "target": "contract_guard.application.services",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_embedding.py",
-      "target": "contract_guard.infrastructure.web.app",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_embedding.py",
-      "target": "contract_guard.infrastructure.web.dependencies",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_embedding.py",
-      "target": "fastapi.testclient",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_embedding.py",
-      "target": "unittest.mock",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_embedding.py#test_embedding_model_is_reused",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
-      "relation": "calls",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_embedding.py#test_embedding_model_is_reused",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "tests/test_temporary_contracts.py#test_invalid_embedding_dimension_is_rejected",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
-      "relation": "calls",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector",
-      "target": "tests/test_embedding.py#test_embedding_model_is_reused.Model.encode.Vector.tolist",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "contextlib",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "asyncio",
       "relation": "imports",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "contract_guard.application.services.embedding",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "contract_guard.application.services.temporary_contracts",
       "relation": "imports",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "contract_guard.infrastructure.database.repositories.contract_repo",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "contract_guard.infrastructure.cache.contract_repository",
       "relation": "imports",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "contract_guard.infrastructure.web.app",
+      "source": "tests/test_temporary_contracts.py",
+      "target": "copy",
       "relation": "imports",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "datetime",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "fastapi.testclient",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "hashlib",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "os",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "psycopg",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "psycopg.rows",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
+      "source": "tests/test_temporary_contracts.py",
       "target": "pytest",
       "relation": "imports",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "secrets",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "unittest.mock",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py",
-      "target": "uuid",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.save_chunk_embedding",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository.search_similar_chunks",
-      "relation": "calls",
-      "confidence": "inferred"
-    },
-    {
-      "source": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation",
-      "target": "tests/test_semantic_search_integration.py#test_pgvector_ranking_and_owner_isolation.test_database",
+      "source": "tests/test_temporary_contracts.py#Embedder",
+      "target": "tests/test_temporary_contracts.py#Embedder.embed_text",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
-      "target": "src/contract_guard/application/services/embedding.py#LocalEmbeddingService",
+      "source": "tests/test_temporary_contracts.py#Repository",
+      "target": "tests/test_temporary_contracts.py#Repository.__init__",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#Repository",
+      "target": "tests/test_temporary_contracts.py#Repository.create_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#Repository",
+      "target": "tests/test_temporary_contracts.py#Repository.get_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#Repository",
+      "target": "tests/test_temporary_contracts.py#Repository.update_contract",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#Repository.__init__",
+      "target": "tests/test_temporary_contracts.py#Settings",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#Repository.get_contract",
+      "target": "src/contract_guard/infrastructure/cache/contract_repository.py#ContractNotFoundError",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "tests/test_semantic_search_integration.py#test_real_persian_search_with_authenticated_user",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "source": "tests/test_temporary_contracts.py#Repository.update_contract",
+      "target": "tests/test_temporary_contracts.py#Repository.get_contract",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract",
+      "target": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "relation": "contains",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "tests/test_semantic_search.py",
-      "target": "src/contract_guard/application/services/semantic_search.py#EmbeddingDimensionError",
+      "source": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.create",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "tests/test_semantic_search.py",
-      "target": "tests/test_semantic_search.py#test_dimension_mismatch_does_not_query_database",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "tests/test_semantic_search.py#test_search_dependency_errors_are_sanitized",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "tests/test_semantic_search.py#test_search_embeds_query_and_scopes_repository_to_user",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "tests/test_semantic_search.py#test_search_endpoint_requires_authentication",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "tests/test_semantic_search.py#test_search_endpoint_returns_results_and_validates_limit",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "tests/test_semantic_search.py#test_search_validation_empty_results_and_openapi",
-      "relation": "contains",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "contextlib",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "contract_guard.application.services.semantic_search",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "contract_guard.infrastructure.database.repositories.contract_repo",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "contract_guard.infrastructure.web.app",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "contract_guard.infrastructure.web.dependencies",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "fastapi.testclient",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "pytest",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py",
-      "target": "unittest.mock",
-      "relation": "imports",
-      "confidence": "extracted"
-    },
-    {
-      "source": "tests/test_semantic_search.py#test_dimension_mismatch_does_not_query_database",
-      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "source": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
-      "target": "src/contract_guard/infrastructure/database/repositories/contract_repo.py#ContractRepository",
+      "source": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.search",
       "relation": "calls",
       "confidence": "inferred"
     },
     {
-      "source": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance",
-      "target": "tests/test_semantic_search.py#test_repository_filters_by_owner_and_orders_by_cosine_distance.fake_database",
+      "source": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "target": "tests/test_temporary_contracts.py#Embedder",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_contract_search_is_scoped_to_the_selected_contract.scenario",
+      "target": "tests/test_temporary_contracts.py#Repository",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract",
+      "target": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract.scenario",
       "relation": "contains",
       "confidence": "extracted"
     },
     {
-      "source": "tests/test_semantic_search.py#test_search_embeds_query_and_scopes_repository_to_user",
-      "target": "src/contract_guard/application/services/semantic_search.py#SemanticSearchService",
+      "source": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract.scenario",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService",
       "relation": "calls",
       "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract.scenario",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.create",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract.scenario",
+      "target": "src/contract_guard/application/services/temporary_contracts.py#TemporaryContractService.embed",
+      "relation": "calls",
+      "confidence": "inferred"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract.scenario",
+      "target": "tests/test_temporary_contracts.py#Embedder",
+      "relation": "calls",
+      "confidence": "extracted"
+    },
+    {
+      "source": "tests/test_temporary_contracts.py#test_other_owner_cannot_read_or_update_contract.scenario",
+      "target": "tests/test_temporary_contracts.py#Repository",
+      "relation": "calls",
+      "confidence": "extracted"
     },
     {
       "source": "tests/unit/test_chunk_polish.py",

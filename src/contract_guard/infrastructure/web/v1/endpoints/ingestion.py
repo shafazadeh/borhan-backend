@@ -15,15 +15,14 @@ router = APIRouter()
 FORMATS = {b"application/pdf": "pdf", b"application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx"}
 
 
-@router.post("/contracts/extract", openapi_extra={"requestBody": {"required": True, "content": {"multipart/form-data": {"schema": {"type": "object", "required": ["file"], "properties": {"file": {"type": "string", "format": "binary"}}}}}}})
-async def extract_contract(request: Request, user=Depends(current_session)):
+async def read_contract_upload(request: Request, maximum: int) -> dict:
+    """Read, validate, extract, and classify one upload entirely in process memory."""
     content_type, options = parse_options_header(request.headers.get("content-type", ""))
     if content_type != b"multipart/form-data" or not options.get(b"boundary") or len(options[b"boundary"]) > 70:
         raise HTTPException(415, "Expected multipart form data")
     content, field, value = bytearray(), bytearray(), bytearray()
     headers = {}
     state = {"parts": 0, "header_size": 0, "complete": False}
-    maximum = Settings().upload_max_bytes
     def part_begin():
         state["parts"] += 1
         if state["parts"] != 1: raise HTTPException(422, "Exactly one file is required")
@@ -69,3 +68,9 @@ async def extract_contract(request: Request, user=Depends(current_session)):
         raise HTTPException(422, "Invalid multipart body") from exc
     finally:
         content.clear()
+
+
+@router.post("/contracts/extract", openapi_extra={"requestBody": {"required": True, "content": {"multipart/form-data": {"schema": {"type": "object", "required": ["file"], "properties": {"file": {"type": "string", "format": "binary"}}}}}}})
+async def extract_contract(request: Request, user=Depends(current_session)):
+    """Extract a document without persisting its content."""
+    return await read_contract_upload(request, Settings().upload_max_bytes)

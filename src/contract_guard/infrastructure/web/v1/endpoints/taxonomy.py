@@ -15,4 +15,5 @@ class ClassifyRequest(BaseModel):
 
 @router.post("/contracts/classify", response_model=list[Classification])
 async def classify_contract(body: ClassifyRequest, user=Depends(current_session)):
+    """Classify legacy request data without persisting it outside the request."""
     return await HybridClauseClassifier(LLMTaxonomyGateway(), Settings().taxonomy_llm_concurrency).classify_batch(body.clauses)

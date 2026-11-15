@@ -5,7 +5,7 @@ from copy import deepcopy
 
 import pytest
 
-from contract_guard.application.services.temporary_contracts import InvalidEmbeddingError, TemporaryContractService
+from contract_guard.application.services.temporary_contracts import ContractPayloadTooLargeError, ContractProcessingExpiredError, InvalidEmbeddingError, TemporaryContractService
 from contract_guard.infrastructure.cache.contract_repository import ContractNotFoundError
 
 
@@ -13,6 +13,8 @@ class Settings:
     """Small settings substitute for in-memory service tests."""
     contract_ttl_seconds = 60
     contract_processing_concurrency = 1
+    contract_max_payload_bytes = 10485760
+    contract_max_chunks = 2000
 
 
 class Repository:
@@ -38,6 +40,11 @@ class Repository:
         update(contract)
         self.contracts[contract_id] = contract
         return deepcopy(contract)
+
+    async def get_contract_ttl(self, contract_id, owner_id):
+        """Return a fixed TTL without mutating stored test data."""
+        await self.get_contract(contract_id, owner_id)
+        return 60
 
 
 class Embedder:
@@ -77,3 +84,29 @@ def test_invalid_embedding_dimension_is_rejected():
     """Vector validation rejects vectors that cannot support cosine ranking."""
     with pytest.raises(InvalidEmbeddingError):
         TemporaryContractService._validate_vector([1.0, 2.0])
+
+
+def test_result_payload_limit_is_enforced_before_storage():
+    """A contract result beyond the memory budget is rejected before Redis writes."""
+    async def scenario():
+        repository = Repository()
+        repository.settings.contract_max_payload_bytes = 10
+        await TemporaryContractService(repository, Embedder()).create("one", "owner", {"text": "too large", "clauses": [], "closing_metadata": {}})
+    with pytest.raises(ContractPayloadTooLargeError):
+        asyncio.run(scenario())
+
+
+def test_embedding_expiry_discards_late_result():
+    """An expired deadline prevents embedding output from being persisted."""
+    class ExpiredRepository(Repository):
+        async def get_contract_ttl(self, contract_id, owner_id):
+            await self.get_contract(contract_id, owner_id)
+            return 0
+
+    async def scenario():
+        repository = ExpiredRepository()
+        service = TemporaryContractService(repository, Embedder())
+        await service.create("one", "owner", {"text": "a", "clauses": [], "closing_metadata": {}})
+        await service.embed("one", "owner", [{"chunk_id": "a", "content": "payment"}])
+    with pytest.raises(ContractProcessingExpiredError):
+        asyncio.run(scenario())

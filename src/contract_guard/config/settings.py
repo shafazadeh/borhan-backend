@@ -43,6 +43,7 @@ class Settings(BaseSettings):
     contract_redis_max_memory: str = "512mb"
     contract_max_active_per_user: int = Field(default=5, ge=1, le=100)
     contract_max_payload_bytes: int = Field(default=10485760, ge=1)
+    contract_max_chunks: int = Field(default=2000, ge=1, le=10000)
     contract_processing_concurrency: int = Field(default=2, ge=1, le=16)
 
     @model_validator(mode="after")

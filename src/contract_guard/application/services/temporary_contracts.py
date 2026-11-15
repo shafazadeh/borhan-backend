@@ -1,6 +1,7 @@
 """Application operations for data that lives only in temporary contract storage."""
 
 import asyncio
+import json
 from collections.abc import Sequence
 from datetime import UTC, datetime, timedelta
 from typing import Any, Protocol
@@ -18,10 +19,19 @@ class TemporaryContractStore(Protocol):
     async def create_contract(self, contract: dict[str, Any]) -> None: ...
     async def get_contract(self, contract_id: str, owner_id: str) -> dict[str, Any]: ...
     async def update_contract(self, contract_id: str, owner_id: str, update: Any) -> dict[str, Any]: ...
+    async def get_contract_ttl(self, contract_id: str, owner_id: str) -> int: ...
 
 
 class InvalidEmbeddingError(ValueError):
     """Raised when an embedding is not a finite 384-dimensional vector."""
+
+
+class ContractPayloadTooLargeError(ValueError):
+    """Raised when derived contract data exceeds the configured volatile limit."""
+
+
+class ContractProcessingExpiredError(RuntimeError):
+    """Raised when a processing deadline expires before a result can be used."""
 
 
 class TemporaryContractService:
@@ -49,6 +59,8 @@ class TemporaryContractService:
             "analysis": {},
             "closing_metadata": extracted.get("closing_metadata", {}),
         }
+        if len(json.dumps(contract, ensure_ascii=False).encode()) > self.repository.settings.contract_max_payload_bytes:
+            raise ContractPayloadTooLargeError("Contract result exceeds the configured temporary-storage limit")
         await self.repository.create_contract(contract)
         return contract
 
@@ -71,6 +83,8 @@ class TemporaryContractService:
             if clauses is not None:
                 contract["clauses"] = source
             chunks = ClauseChunker().chunk_clauses(contract_id, source)
+            if len(chunks) > self.repository.settings.contract_max_chunks:
+                raise ContractPayloadTooLargeError("Contract produces too many chunks")
             contract["chunks"] = chunks
             contract["embeddings"] = []
         await self.repository.update_contract(contract_id, owner_id, apply)
@@ -82,8 +96,15 @@ class TemporaryContractService:
         source = list(chunks) if chunks is not None else contract["chunks"]
         if not source:
             raise ValueError("Contract has no chunks to embed")
+        deadline = await self.repository.get_contract_ttl(contract_id, owner_id)
         async with self._embedding_gate():
-            vectors = await asyncio.gather(*[asyncio.to_thread(self.embedding_service.embed_text, item["content"] if "content" in item else item["text"]) for item in source])
+            try:
+                vectors = await asyncio.wait_for(
+                    asyncio.gather(*[asyncio.to_thread(self.embedding_service.embed_text, item["content"] if "content" in item else item["text"]) for item in source]),
+                    timeout=deadline,
+                )
+            except TimeoutError as exc:
+                raise ContractProcessingExpiredError("Contract expired during embedding") from exc
         embeddings = []
         for chunk, vector in zip(source, vectors):
             normalized = self._validate_vector(vector)
@@ -110,8 +131,14 @@ class TemporaryContractService:
         contract = await self.repository.get_contract(contract_id, owner_id)
         if not contract["embeddings"]:
             return []
-        query_vector = await asyncio.to_thread(self.embedding_service.embed_text, query)
-        return await asyncio.to_thread(self._rank, contract, query_vector, top_k)
+        deadline = await self.repository.get_contract_ttl(contract_id, owner_id)
+        try:
+            query_vector = await asyncio.wait_for(asyncio.to_thread(self.embedding_service.embed_text, query), timeout=deadline)
+            result = await asyncio.wait_for(asyncio.to_thread(self._rank, contract, query_vector, top_k), timeout=deadline)
+        except TimeoutError as exc:
+            raise ContractProcessingExpiredError("Contract expired during search") from exc
+        await self.repository.get_contract_ttl(contract_id, owner_id)
+        return result
 
     @staticmethod
     def _validate_vector(vector: Sequence[float]) -> list[float]:

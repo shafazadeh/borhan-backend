@@ -9,7 +9,7 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from pydantic import BaseModel, Field
 
-from contract_guard.application.services.temporary_contracts import InvalidEmbeddingError, TemporaryContractService
+from contract_guard.application.services.temporary_contracts import ContractPayloadTooLargeError, ContractProcessingExpiredError, InvalidEmbeddingError, TemporaryContractService
 from contract_guard.application.use_cases.classify_clauses import HybridClauseClassifier
 from contract_guard.config.settings import Settings
 from contract_guard.domain.models.taxonomy import ClauseInput
@@ -50,6 +50,8 @@ async def create_contract(request: Request, user=Depends(current_session)):
         service = _service()
         contract = await service.create(secrets.token_urlsafe(24), str(user["id"]), extracted)
         return {"contract_id": contract["contract_id"], "expires_in": Settings().contract_ttl_seconds, "expires_at": contract["expires_at"]}
+    except ContractPayloadTooLargeError as exc:
+        raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, "Contract exceeds the temporary-storage limit") from exc
     except (ContractStorageError, ContractNotFoundError) as exc:
         _raise_storage_error(exc)
 
@@ -94,6 +96,8 @@ async def chunk_stored_contract(contract_id: str, user=Depends(current_session))
     """Chunk the stored clauses and replace only derived volatile fields."""
     try:
         return await _service().chunk(contract_id, str(user["id"]))
+    except ContractPayloadTooLargeError as exc:
+        raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, "Contract exceeds the temporary-storage limit") from exc
     except (ContractStorageError, ContractNotFoundError) as exc:
         _raise_storage_error(exc)
 
@@ -106,6 +110,8 @@ async def embed_stored_contract(contract_id: str, user=Depends(current_session))
         return {"status": "saved", "dimension": 384, "count": count}
     except (ContractStorageError, ContractNotFoundError) as exc:
         _raise_storage_error(exc)
+    except ContractProcessingExpiredError as exc:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Contract not found") from exc
     except (ValueError, InvalidEmbeddingError) as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(exc)) from exc
 
@@ -117,5 +123,7 @@ async def search_stored_contract(contract_id: str, body: SearchContractRequest, 
         return await _service().search(contract_id, str(user["id"]), body.query.strip(), body.top_k)
     except (ContractStorageError, ContractNotFoundError) as exc:
         _raise_storage_error(exc)
+    except ContractProcessingExpiredError as exc:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Contract not found") from exc
     except InvalidEmbeddingError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(exc)) from exc

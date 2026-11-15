@@ -7,7 +7,9 @@ services:
   redis-contracts:
     image: redis:8
     command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "${CONTRACT_REDIS_MAX_MEMORY:-512mb}", "--maxmemory-policy", "noeviction"]
-    # Deliberately has no host port: contract data is only reachable on the compose network.
+    # Loopback only: available to a host-run development app, never to the public network.
+    ports:
+      - "127.0.0.1:${CONTRACT_REDIS_PORT:-56380}:6379"
   postgres:
     image: pgvector/pgvector:pg16
     environment:

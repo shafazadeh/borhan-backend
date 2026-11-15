@@ -6,7 +6,7 @@ from datetime import UTC, datetime, timedelta
 from typing import Any
 
 from redis.asyncio import Redis
-from redis.exceptions import RedisError, ResponseError, WatchError
+from redis.exceptions import RedisError, WatchError
 
 from contract_guard.config.settings import Settings
 
@@ -115,7 +115,11 @@ return 1
                 continue
             except ContractNotFoundError:
                 raise
-            except (RedisError, ValueError, TypeError) as exc:
+            except json.JSONDecodeError as exc:
+                raise ContractStorageError("Temporary contract storage is unavailable") from exc
+            except ValueError:
+                raise
+            except (RedisError, TypeError) as exc:
                 raise ContractStorageError("Temporary contract storage is unavailable") from exc
         raise ContractStorageError("Temporary contract was updated concurrently")
 

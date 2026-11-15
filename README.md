@@ -1,66 +1,32 @@
 # Contract Guard
 
-## وضعیت فعلی: قراردادهای موقت در RAM
+بک‌اند FastAPI برای دریافت، پردازش و جست‌وجوی قراردادهای فارسی. این سامانه ابزار کمکی پردازش متن است و جایگزین مشاوره یا نظر حقوقی نیست.
 
-این بخش وضعیت فعلی پروژه را مشخص می‌کند و هر توضیح قدیمیِ ناسازگار در بخش‌های پایین‌تر را جایگزین می‌کند؛ سایر مستندات قبلی برای حفظ زمینهٔ پروژه بدون حذف باقی مانده‌اند.
+## قابلیت‌های فعلی
 
-محتوای قرارداد، متن استخراج‌شده، بندها، chunkها، embeddingها و تحلیل‌های وابسته فقط در Redis اختصاصی `redis-contracts` نگهداری می‌شوند. هر قرارداد شناسهٔ تصادفی دارد، به مالک احرازشده محدود است، حداکثر تا `CONTRACT_TTL_SECONDS` (سقف قطعی ۷۲۰۰ ثانیه) زنده می‌ماند و عملیات خواندن یا update آن TTL را تمدید نمی‌کند. حذف دستی با `DELETE /api/v1/contracts/{contract_id}` داده و ورودی شاخص مالک را حذف می‌کند. PostgreSQL و pgvector برای دادهٔ خصوصی قرارداد استفاده نمی‌شوند؛ جدول تاریخی `contract_embeddings` عمداً تا زمان تصمیم عملیاتی مستقل حذف نشده است.
+- ورود با شمارهٔ موبایل، OTP توسعه‌ای و access/refresh tokenهای opaque؛ نه JWT.
+- استخراج متن از PDF متنی و DOCX با سقف حجم، زمان، صفحه و محافظت‌های ZIP برای DOCX.
+- تفکیک بندها، دسته‌بندی قانون‌محور و در صورت پیکربندی، gateway اختیاری LLM.
+- نگهداری موقت قرارداد، بندها، chunkها، embeddingها و تحلیل‌ها در Redis اختصاصی.
+- embedding محلی ۳۸۴بعدی و جست‌وجوی cosine با NumPy، محدود به یک قرارداد و مالک آن.
+- پایگاه دانش حقوقی عمومی در PostgreSQL باقی می‌ماند؛ دادهٔ خصوصی قرارداد هرگز در PostgreSQL یا pgvector ذخیره نمی‌شود.
 
-### API قرارداد
+## معماری قراردادهای موقت
 
-همهٔ مسیرهای زیر به احراز هویت Bearer نیاز دارند.
+هر قرارداد با `contract_id` تصادفی ایجاد و تنها برای کاربر مالک قابل‌دسترسی است. دادهٔ قرارداد شامل متن استخراج‌شده، بندها، chunkها، embeddingها، تحلیل‌ها و زمان ایجاد/انقضا، همگی در یک رکورد JSON در Redis اختصاصی `redis-contracts` نگهداری می‌شود.
 
-| مسیر | کاربرد |
-|---|---|
-| `POST /api/v1/contracts` | آپلود multipart با فیلد `file`، استخراج و ایجاد قرارداد؛ پاسخ شامل `contract_id`، `expires_in` و `expires_at` است. |
-| `GET` / `DELETE /api/v1/contracts/{contract_id}` | دریافت قرارداد موقت یا حذف فوری آن، فقط توسط مالک. |
-| `POST /api/v1/contracts/{contract_id}/classify` | دسته‌بندی بندهای ذخیره‌شده. |
-| `POST /api/v1/contracts/{contract_id}/chunk` | chunkسازی بندهای ذخیره‌شده. |
-| `POST /api/v1/contracts/{contract_id}/embed` | تولید embeddingهای ۳۸۴بعدی با مدل محلی؛ پردازش CPU-bound خارج از event loop اجرا و هم‌زمانی آن محدود می‌شود. |
-| `POST /api/v1/contracts/{contract_id}/search` | جست‌وجوی cosine با NumPy تنها در embeddingهای همان قرارداد. |
+- `CONTRACT_TTL_SECONDS` حداکثر ۷۲۰۰ ثانیه است و از لحظهٔ پذیرش آپلود محاسبه می‌شود.
+- خواندن، دسته‌بندی، chunkسازی، embedding و جست‌وجو TTL را تمدید نمی‌کنند.
+- updateها با `WATCH`/transaction و `KEEPTTL` انجام می‌شوند؛ نتیجهٔ پردازشی که پس از حذف یا انقضا تمام شود ذخیره نمی‌شود.
+- Redis برای قراردادها RDB و AOF ندارد، `noeviction` دارد و با پرشدن حافظه درخواست جدید را رد می‌کند.
+- هر کاربر سقف قراردادهای فعال، هر قرارداد سقف payload و سقف chunk دارد.
+- جدول تاریخی `contract_embeddings` عمداً حذف نشده است؛ کد برنامه دیگر آن را نمی‌خواند یا نمی‌نویسد. حذف جدول، backup و WAL یک عملیات جداگانه و نیازمند تأیید است.
 
-نمونهٔ جست‌وجو:
+TTL حذف منطقی Redis است؛ تضمین نمی‌کند تمام کپی‌های فیزیکی داده در RAM فوراً overwrite شوند.
 
-```json
-{"query":"شرایط فسخ قرارداد چیست؟", "top_k":5}
-```
+## راه‌اندازی توسعه
 
-`POST /api/v1/contracts/embed-chunk` و `POST /api/v1/contracts/search` همچنان وجود دارند، اما تغییر ناسازگار پذیرفته‌شده دارند: هر دو `contract_id` الزامی دارند، فقط Redis قرارداد را استفاده می‌کنند و برای قرارداد ناموجود یا غیرمالک `404` برمی‌گردانند. ورودی فاقد `contract_id` با `422` رد می‌شود.
-
-### اجرای Redis و ملاحظات محرمانگی
-
-با `docker compose up -d redis redis-contracts` هر دو Redis را اجرا کنید. Redis قرارداد RDB و AOF ندارد، `noeviction` دارد و هیچ پورتی روی host منتشر نمی‌کند. مقادیر `CONTRACT_REDIS_URL`، `CONTRACT_REDIS_MAX_MEMORY`، `CONTRACT_TTL_SECONDS`، `CONTRACT_MAX_ACTIVE_PER_USER`، `CONTRACT_MAX_PAYLOAD_BYTES` و `CONTRACT_PROCESSING_CONCURRENCY` در `.env.example` مستند شده‌اند.
-
-تصویر برنامه `TMPDIR=/tmp/contract-guard` دارد. در production این مسیر را با tmpfs محدود mount کنید؛ برای نمونه: `--tmpfs /tmp/contract-guard:rw,noexec,nosuid,size=128m`. Compose فعلی فقط سرویس‌های backing را تعریف می‌کند، پس سرویس application در deployment باید mount معادل داشته باشد. در Windows Development این تضمین تنها با Docker یا RAM disk قابل دستیابی است. همچنین swap، core dump، backup و ثبت payload در log/APM باید در سطح زیرساخت کنترل شوند. TTL حذف منطقی Redis است و حذف فوری تمام کپی‌های فیزیکی در RAM را تضمین نمی‌کند.
-
-بک‌اند FastAPI برای دریافت و آماده‌سازی قراردادهای فارسی. نسخهٔ فعلی ورود با شمارهٔ موبایل، استخراج متن از PDF/DOCX، تفکیک و دسته‌بندی بندها، چانک‌سازی، تولید embedding محلی و جست‌وجوی معنایی میان چانک‌های همان کاربر را فراهم می‌کند.
-
-> این پروژه ابزار کمکی پردازش متن است و جایگزین مشاوره یا نظر حقوقی نیست.
-
-## وضعیت قابلیت‌ها
-
-| قابلیت | وضعیت | توضیح |
-|---|---|---|
-| ورود با شمارهٔ موبایل | پیاده‌سازی‌شده | OTP توسعه، نشست و access/refresh token تصادفی (نه JWT) |
-| پروفایل کاربر | پیاده‌سازی‌شده | مشاهده و ویرایش محدود `email` و `username` |
-| استخراج قرارداد | پیاده‌سازی‌شده | PDF متنی و DOCX؛ ورودی و پردازش با محدودیت اندازه و زمان |
-| پردازش بندها | پیاده‌سازی‌شده | نرمال‌سازی، تفکیک، تشخیص تقریبی بخش پایانی/امضا و دسته‌بندی |
-| چانک‌سازی | پیاده‌سازی‌شده | قطعه‌های حداکثر ۸۰۰ کاراکتر با ۱۵۰ کاراکتر هم‌پوشانی و حفظ metadata |
-| embedding و جست‌وجوی معنایی | پیاده‌سازی‌شده | مدل محلی چندزبانه با بردار ۳۸۴بعدی و `pgvector`؛ نتایج فقط به مالک داده محدود می‌شوند |
-| دسته‌بندی با مدل زبانی | اختیاری | در صورت پیکربندی gateway سازگار با Chat Completions؛ در غیر این صورت مسیر قانون‌محور/حالت تنزل‌یافته استفاده می‌شود |
-| پایگاه دانش حقوقی | اولیه | جدول و اسکریپت seed برای گزیده‌ای از قوانین وجود دارد، اما embedding آن‌ها، retrieval و RAG هنوز متصل نشده‌اند |
-| تحلیل ریسک و گزارش نهایی | پیاده‌سازی‌نشده | فایل‌ها و قراردادهای اولیه وجود دارند، ولی endpoint و جریان عملیاتی ندارند |
-| ارسال واقعی پیامک | پیاده‌سازی‌نشده | در production درخواست و تأیید ورود با 503 متوقف می‌شود |
-
-## پیش‌نیازها
-
-- Python 3.11 یا بالاتر
-- PostgreSQL دارای افزونهٔ `pgvector` و Redis؛ ساده‌ترین راه، Docker Compose موجود در مخزن است.
-- اتصال اینترنت در نخستین اجرای embedding، تا مدل `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` با revision پین‌شده دریافت شود.
-
-## راه‌اندازی در ویندوز
-
-در ریشهٔ پروژه:
+پیش‌نیازها: Python 3.11+، Docker و Docker Compose. PostgreSQL همچنان برای کاربران، نشست‌ها و دانش حقوقی استفاده می‌شود. pgvector فقط برای دادهٔ عمومی دانش حقوقی باقی مانده است.
 
 ```powershell
 python -m venv venv
@@ -68,130 +34,93 @@ python -m venv venv
 if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 python -m pip install --upgrade pip
 python -m pip install -e .
-docker compose up -d postgres redis
+docker compose up -d postgres redis redis-contracts
 python -m contract_guard.infrastructure.database.migrate
 python -m contract_guard
 ```
 
-سرور مطابق `.env` نمونه در `http://127.0.0.1:8001` اجرا می‌شود و مستندات تعاملی آن در `/docs` است. نقطهٔ ورود درست `python -m contract_guard` است؛ دستور قدیمی `uvicorn app.main:app` به این ساختار مربوط نیست.
+سرور نمونه روی `http://127.0.0.1:8001` و مستندات OpenAPI روی `/docs` در دسترس است.
 
-قبل از اجرای migration روی پایگاه دادهٔ موجود، از آن نسخهٔ پشتیبان بگیرید. migration شمارهٔ ۵ اگر embeddingهای قدیمی با بعدی غیر از ۳۸۴ وجود داشته باشند، عمداً با خطا متوقف می‌شود تا داده‌ها بدون بازتولید بردارها تغییر نکنند.
+`redis-contracts` فقط روی loopback توسعه منتشر می‌شود تا برنامه‌ای که روی host اجرا می‌شود به آن وصل شود؛ هرگز آن را روی شبکهٔ عمومی منتشر نکنید.
 
-### تنظیمات
+## تنظیمات
 
-تمام تنظیمات با Pydantic Settings از محیط یا `.env` خوانده می‌شوند. `.env.example` فقط مقادیر توسعه دارد و نباید با اسرار واقعی commit شود.
+تمام تنظیمات از environment یا `.env` با Pydantic Settings خوانده می‌شوند. مقادیر نمونه در `.env.example` قرار دارند.
 
-| گروه | متغیرهای اصلی | کاربرد |
-|---|---|---|
-| اجرا | `ENVIRONMENT`, `HOST`, `PORT` | محیط و نشانی سرویس |
-| PostgreSQL | `DATABASE_URL`, `POSTGRES_*` | اتصال برنامه و سرویس Compose |
-| Redis | `REDIS_URL`, `REDIS_*` | چالش‌های ورود، تلاش‌ها و cooldown |
-| نشست و OTP | `SESSION_HOURS`, `ACCESS_TOKEN_MINUTES`, `OTP_*`, `DEV_OTP_CODE` | عمر نشست و کنترل ورود |
-| استخراج | `UPLOAD_MAX_BYTES`, `EXTRACTION_*`, `DOCX_MAX_*` | سقف حجم، زمان، صفحات و ایمنی DOCX |
-| embedding | `EMBEDDING_MODEL_NAME`, `EMBEDDING_MODEL_REVISION` | نام و revision مدل محلی؛ خروجی فعلی باید ۳۸۴بعدی باشد |
-| LLM دسته‌بندی | `TAXONOMY_LLM_*` | gateway اختیاری برای بندهای مبهم |
+| گروه | متغیرهای مهم |
+|---|---|
+| PostgreSQL | `DATABASE_URL` و `POSTGRES_*` |
+| Redis احراز هویت | `REDIS_URL`، `REDIS_KEY_PREFIX` و `REDIS_SOCKET_TIMEOUT_SECONDS` |
+| Redis قرارداد | `CONTRACT_REDIS_URL`، `CONTRACT_REDIS_PORT` و `CONTRACT_REDIS_MAX_MEMORY` |
+| محدودیت قرارداد | `CONTRACT_TTL_SECONDS`، `CONTRACT_MAX_ACTIVE_PER_USER`، `CONTRACT_MAX_PAYLOAD_BYTES`، `CONTRACT_MAX_CHUNKS` و `CONTRACT_PROCESSING_CONCURRENCY` |
+| استخراج | `UPLOAD_MAX_BYTES`، `EXTRACTION_*` و `DOCX_MAX_*` |
+| مدل‌ها | `EMBEDDING_MODEL_*` و `TAXONOMY_LLM_*` |
 
-`DEV_OTP_CODE=1234` و `ENVIRONMENT=development` فقط برای توسعه‌اند. در محیط production، پیش از فعال‌سازی سرویس پیامک واقعی نباید مسیر ورود را در اختیار کاربر قرار دهید.
+`CONTRACT_TTL_SECONDS` بیشتر از ۷۲۰۰ پذیرفته نمی‌شود. `CONTRACT_MAX_PAYLOAD_BYTES` نیز نمی‌تواند از `UPLOAD_MAX_BYTES` بیشتر باشد.
 
 ## API
 
-همهٔ مسیرها با `/api/v1` شروع می‌شوند. برای مسیرهای محافظت‌شده این header را بفرستید:
+همهٔ مسیرهای محافظت‌شده به این header نیاز دارند:
 
 ```http
 Authorization: Bearer <access_token>
 ```
 
-| مسیر | احراز هویت | کاربرد |
-|---|---:|---|
-| `POST /auth/request-code` | خیر | ساخت چالش ورود برای `mobile` |
-| `POST /auth/verify` | خیر | تأیید `mobile` و `code`، ایجاد/بازیابی کاربر و بازگرداندن tokenها |
-| `POST /auth/refresh` | خیر | چرخش access و refresh token |
-| `POST /auth/logout` | بله | ابطال نشست جاری؛ پاسخ `204` |
-| `GET /users/me` | بله | دریافت پروفایل جاری |
-| `PATCH /users/me` | بله | تغییر اختیاری `email` و `username` |
-| `POST /contracts/extract` | بله | ارسال multipart با فیلد `file` از نوع PDF یا DOCX؛ استخراج، تفکیک و دسته‌بندی |
-| `POST /contracts/classify` | بله | دسته‌بندی فهرست بندهای JSON |
-| `POST /contracts/chunk` | بله | چانک‌سازی بندهای ورودی؛ این مسیر چانک‌ها را ذخیره نمی‌کند |
-| `POST /contracts/embed-chunk` | بله | ساخت embedding برای یک چانک و upsert آن برای کاربر جاری |
-| `POST /contracts/search` | بله | جست‌وجوی معنایی بین embeddingهای همان کاربر |
+### قراردادهای موقت
 
-نمونهٔ دسته‌بندی:
+| مسیر | کاربرد |
+|---|---|
+| `POST /api/v1/contracts` | آپلود multipart با فیلد `file` و ایجاد قرارداد موقت؛ پاسخ شامل `contract_id`، `expires_in` و `expires_at`. |
+| `GET /api/v1/contracts/{contract_id}` | دریافت دادهٔ قرارداد و TTL باقیمانده، فقط برای مالک. |
+| `DELETE /api/v1/contracts/{contract_id}` | حذف فوری قرارداد، فقط برای مالک. |
+| `POST /api/v1/contracts/{contract_id}/classify` | دسته‌بندی بندهای ذخیره‌شده. |
+| `POST /api/v1/contracts/{contract_id}/chunk` | chunkسازی بندهای ذخیره‌شده. |
+| `POST /api/v1/contracts/{contract_id}/embed` | تولید embeddingهای chunkها، خارج از event loop و با محدودیت هم‌زمانی. |
+| `POST /api/v1/contracts/{contract_id}/search` | جست‌وجوی semantic در همان قرارداد. |
+
+نمونهٔ درخواست جست‌وجو:
 
 ```json
-{
-  "clauses": [
-    {
-      "clause_id": "1",
-      "index": 1,
-      "article_title": "ماده ششم - مبلغ قرارداد",
-      "text": "پرداخت اقساط طبق توافق انجام می‌شود."
-    }
-  ]
-}
+{"query":"شرایط فسخ قرارداد چیست؟", "top_k":5}
 ```
 
-برای ذخیره و سپس جست‌وجوی یک چانک:
+خطاهای اصلی: `401` برای احراز هویت، `404` برای قرارداد ناموجود/غیرمالک/منقضی، `413` برای حجم بیش از سقف، `422` برای ورودی یا embedding نامعتبر و `503` برای Redis ناموجود یا ظرفیت Redis.
 
-```json
-POST /api/v1/contracts/embed-chunk
-{"contract_id":"contract-1","chunk_id":"chunk-1","text":"پرداخت اقساط طبق توافق انجام می‌شود."}
+### سازگاری مسیرهای قبلی
 
-POST /api/v1/contracts/search
-{"query":"شرایط پرداخت قرارداد چیست؟","top_k":5}
+`POST /api/v1/contracts/extract`، `POST /api/v1/contracts/classify` و `POST /api/v1/contracts/chunk` همچنان دادهٔ ورودی را فقط در طول همان درخواست پردازش می‌کنند و آن را ذخیره نمی‌کنند.
+
+`POST /api/v1/contracts/embed-chunk` و `POST /api/v1/contracts/search` تغییر ناسازگار پذیرفته‌شده دارند: `contract_id` اجباری است، داده فقط در Redis همان قرارداد نگهداری/جست‌وجو می‌شود، و درخواست فاقد `contract_id` با `422` رد می‌شود.
+
+## محرمانگی و RAM-only
+
+مسیر آپلود با stream سفارشی و `bytearray` در حافظه خوانده می‌شود و از `UploadFile`/`SpooledTemporaryFile` استفاده نمی‌کند. استخراج در subprocess با stdin انجام می‌شود؛ فایل اصلی پس از پایان درخواست نگهداری نمی‌شود.
+
+تصویر برنامه `TMPDIR=/tmp/contract-guard` را تنظیم می‌کند. در production این مسیر را با tmpfs محدود mount کنید؛ برای نمونه:
+
+```text
+--tmpfs /tmp/contract-guard:rw,noexec,nosuid,size=128m
 ```
 
-`top_k` بین ۱ تا ۱۰۰ است (کلید `limit` نیز پذیرفته می‌شود). مقدار `similarity` امتیاز شباهت کسینوسی است، نه احتمال یا نمرهٔ حقوقی. جست‌وجو به بردارهای ۳۸۴بعدی وابسته است؛ ناسازگاری ابعاد پاسخ ۵۰۰ و در دسترس نبودن مدل یا پایگاه داده پاسخ ۵۰۳ می‌دهد.
-
-## جریان پردازش قرارداد
-
-1. ورودی multipart با سقف حجم خوانده می‌شود و PDF/DOCX با نوع اعلام‌شده و امضای فایل بررسی می‌شود.
-2. متن از PDF با `pypdf` و از DOCX با `python-docx` استخراج می‌شود؛ DOCX از نظر محدودیت‌های ZIP نیز کنترل می‌شود.
-3. بخش پایانی و امضا تا حد امکان جدا، متن نرمال و بندها همراه عنوان ماده تفکیک می‌شوند.
-4. دسته‌بندی قانون‌محور ابتدا اجرا می‌شود. در صورت لزوم gateway اختیاری LLM فراخوانی می‌شود و برای هر بند `taxonomy` و `search_context` تولید می‌شود.
-5. برای جست‌وجوی معنایی، خروجی بندها را ابتدا به `/contracts/chunk` و سپس هر قطعه را به `/contracts/embed-chunk` بفرستید. اتصال خودکار استخراج به ذخیره‌سازی embedding هنوز وجود ندارد.
-
-متن قرارداد و نتیجهٔ استخراج در مسیر فعلی به‌صورت خودکار در پایگاه داده، فایل یا Redis ذخیره نمی‌شود؛ با این حال، متن چانک ارسالی به `embed-chunk` در جدول embedding نگهداری می‌شود. اگر LLM دسته‌بندی فعال باشد، عنوان و بخش محدودی از متن بند به سرویس پیکربندی‌شده ارسال می‌شود؛ سیاست نگه‌داری دادهٔ آن سرویس را جداگانه بررسی کنید.
+Compose فعلی فقط سرویس‌های backing را تعریف می‌کند؛ سرویس application در deployment باید tmpfs معادل داشته باشد. در Windows development این تضمین فقط با Docker یا RAM disk قابل دستیابی است. swap، core dump، backup و ثبت request body در log/APM نیز باید در سطح زیرساخت کنترل شوند.
 
 ## داده و migration
 
-اجرای `python -m contract_guard.infrastructure.database.migrate` فایل‌های SQL شماره‌دار `001` تا `005` را به‌ترتیب اجرا می‌کند. آن‌ها کاربران/نشست‌ها و جدول `contract_embeddings` با شاخص HNSW و `vector(384)` را آماده می‌کنند.
+`python -m contract_guard.infrastructure.database.migrate` migrationهای SQL موجود را اجرا می‌کند. قبل از اجرای migration روی پایگاه دادهٔ موجود، backup بگیرید. هیچ migration مخربی برای حذف `contract_embeddings` همراه این تغییر اجرا نشده است.
 
-در `migrations/versions/` یک migration جداگانهٔ Alembic برای جدول `legal_knowledge_base` وجود دارد. این migration در runner SQL بالا اجرا نمی‌شود و Alembic نیز وابستگی نصب‌شدهٔ پروژه نیست؛ بنابراین آن را بخشی از راه‌اندازی معمول تلقی نکنید تا زمانی که فرایند migration یکپارچه شود. اسکریپت `python -m scripts.seed_legal_kb` نیز به همان جدول نیاز دارد و فعلاً رکوردها را بدون embedding می‌سازد.
-
-## آزمون
+## تست
 
 ```powershell
-python -m pytest -q
+.\venv\Scripts\python.exe -m pytest -q
 ```
 
-آزمون‌های واحد دسته‌بندی، چانک‌سازی، ذخیرهٔ embedding، احراز هویت endpointها و جست‌وجوی محدود به مالک را پوشش می‌دهند. آزمون‌های integration جست‌وجو به صورت پیش‌فرض skip می‌شوند و به متغیرهای زیر نیاز دارند:
+تست‌های واحد کنترل مالکیت، محدودهٔ جست‌وجو، ابعاد embedding، سقف payload، انقضای حین embedding، parsing، chunking و taxonomy را پوشش می‌دهند. Integration واقعی نیازمند Redis قرارداد، PostgreSQL و مدل embedding در حال اجراست؛ آن را فقط در محیط اختصاصی تست اجرا کنید.
 
-```powershell
-$env:TEST_DATABASE_URL = "postgresql://.../contract_guard_search_test_..."
-$env:RUN_REAL_EMBEDDING_TEST = "1" # فقط برای آزمون مدل واقعی
-python -m pytest tests/test_semantic_search_integration.py -q
-```
+آخرین بررسی محلی: `27 passed, 17 subtests passed`. در این بررسی، اعتبارسنجی HTTP برای ورودی فاقد `contract_id` (`422`)، Redis قراردادِ در دسترس‌نبودنی (`503`) و فایل نامعتبر (`415`) نیز اجرا شد. جریان End-to-End واقعی و benchmark کارایی باید پس از در دسترس‌بودن Docker daemon، Redis قرارداد، PostgreSQL و مدل embedding اجرا شود؛ تست mock جایگزین آن نیست.
 
-این آزمون‌ها را فقط با پایگاه دادهٔ تست اختصاصی اجرا کنید؛ آزمون مدل واقعی دانلود/بارگذاری مدل را انجام می‌دهد.
+## محدودیت‌های شناخته‌شده
 
-## محدودیت‌های شناخته‌شده و گام‌های بعدی
-
-- PDF اسکن‌شدهٔ فاقد لایهٔ متن به OCR نیاز دارد و هنوز پشتیبانی نمی‌شود.
-- تشخیص امضا، تفکیک بندها، اصلاح شماره‌ها و قواعد دسته‌بندی قطعی نیستند و باید با مجموعهٔ مستقل قراردادهای برچسب‌خورده ارزیابی شوند.
-- امتیاز `confidence=0.9` قانون‌محور، احتمال آماری کالیبره‌شده نیست.
-- ذخیرهٔ قرارداد، اتصال خودکار استخراج به چانک/embedding، بازیابی دانش حقوقی و RAG هنوز کامل نیستند.
-- تحلیل ریسک، گزارش نهایی، سرویس پیامک، مشاهده‌پذیری و طراحی عملیاتی production باقی مانده‌اند.
-
-## ساختار مهم پروژه
-
-```text
-src/contract_guard/
-├── application/services/          # chunking، embedding و semantic search
-├── application/use_cases/         # ورود، استخراج و دسته‌بندی
-├── infrastructure/database/       # اتصال، migration SQL و repositoryها
-├── infrastructure/parsers/        # PDF، DOCX و worker استخراج
-└── infrastructure/web/            # FastAPI، وابستگی احراز هویت و endpointها
-migrations/                        # migrationهای SQL شماره‌دار و migration Alembic جداگانه
-scripts/seed_legal_kb.py           # دادهٔ آغازین گزیدهٔ قوانین
-tests/                              # آزمون‌های واحد و integration
-```
+- PDF اسکن‌شده بدون لایهٔ متن به OCR نیاز دارد و پشتیبانی نمی‌شود.
+- دسته‌بندی، تشخیص امضا و تفکیک بندها قطعیت حقوقی ندارند و باید با دادهٔ برچسب‌خورده ارزیابی شوند.
+- `confidence=0.9` قانون‌محور احتمال آماری کالیبره‌شده نیست.
+- تحلیل ریسک، گزارش نهایی، سرویس پیامک و RAG کامل هنوز پیاده‌سازی نشده‌اند.
